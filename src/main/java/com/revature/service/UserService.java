@@ -28,4 +28,11 @@ public class UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    public User validateUser(User user) {
+        if (userRepository.findByUsername(user.getUsername()) != null && userRepository.findByUsername(user.getUsername()).getPassword().equals(user.getPassword())) {
+            return userRepository.findByUsername(user.getUsername());
+        }
+        return null;
+    }
 }
