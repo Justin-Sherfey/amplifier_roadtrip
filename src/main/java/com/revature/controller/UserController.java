@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * User login test
+ *
  */
 @RestController()
 @RequestMapping(value = "/users")
