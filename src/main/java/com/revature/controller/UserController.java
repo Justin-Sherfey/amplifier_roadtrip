@@ -6,6 +6,9 @@ import com.revature.model.User;
 import com.revature.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * User login test
+ */
 @RestController()
 @RequestMapping(value = "/users")
 public class UserController {
