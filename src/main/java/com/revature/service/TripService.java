@@ -1,6 +1,6 @@
 package com.revature.service;
 
-import com.revature.model.Trip;
+import com.revature.model.*;
 import com.revature.repository.TripRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +17,10 @@ public class TripService {
     public List<Trip> getAllTrips() {
         return tripRepository.findAll();
     }
+
+    public List<Waypoint> getWayPointById(Integer tripId){
+        return tripRepository.getAllWaypointById(tripId);
+    }
+
+
 }
