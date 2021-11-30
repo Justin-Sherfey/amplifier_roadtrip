@@ -10,8 +10,8 @@
 	</parent>
 	<groupId>com.revature</groupId>
 	<artifactId>Amplifire_RoadTrip</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<version>1.0</version>
+	<packaging>jar</packaging>
 	<name>Amplifire_RoadTrip</name>
 	<description>Test for  Amplifire_RoadTrip</description>
 	<properties>
