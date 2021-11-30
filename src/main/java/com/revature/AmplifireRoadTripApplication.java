@@ -1,4 +1,4 @@
-package com.revature.Amplifire_RoadTrip;
+package com.revature;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +9,4 @@ public class AmplifireRoadTripApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AmplifireRoadTripApplication.class, args);
 	}
-
 }
