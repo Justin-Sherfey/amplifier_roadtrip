@@ -6,10 +6,13 @@ import com.revature.model.User;
 import com.revature.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
+<<<<<<< HEAD
 /**
  * User login test
  *
  */
+=======
+>>>>>>> 03f0d320bf608315f37e4f90620e2a7fe96e6943
 @RestController()
 @RequestMapping(value = "/users")
 public class UserController {
@@ -24,10 +27,4 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
-
-    @PostMapping
-    public User createNewUser(@RequestBody User user) {
-        return userService.createNewUser(user);
-    }
-
 }
