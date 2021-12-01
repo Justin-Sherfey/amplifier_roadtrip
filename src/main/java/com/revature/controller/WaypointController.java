@@ -7,7 +7,7 @@ import com.revature.service.WaypointService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController()
-@RequestMapping(value = "/waypoint")
+@RequestMapping(value = "/waypoints")
 public class WaypointController {
 
     private WaypointService waypointService;

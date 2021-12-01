@@ -19,5 +19,6 @@ public class User {
     @Column(unique = true)
     private String username;
 
-    private List<Trip> trips;
+//    @OneToMany(mappedBy="user")
+//    private List<Trip> trips;
 }

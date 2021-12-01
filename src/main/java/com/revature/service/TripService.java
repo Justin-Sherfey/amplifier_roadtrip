@@ -19,10 +19,10 @@ public class TripService {
         return tripRepository.save(trip);
     }
 
-    //READ
-    public List<Trip> getAllTripsById(Integer userId) {
-        return tripRepository.findAllByUser_userId(userId);
-    }
+//    //READ
+//    public List<Trip> getAllTripsById(Integer userId) {
+//        return tripRepository.findAllByUser_user_id(userId);
+//    }
 
     public Trip getTripById(Integer tripId) {
         return tripRepository.getByTripId(tripId);
