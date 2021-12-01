@@ -1,9 +1,6 @@
 package com.revature.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,13 +18,12 @@ public class Trip {
 
     @Column
     private String tripName;
-    @Column
-    private Waypoint startPoint;
-    @Column
-    private Waypoint endPoint;
 
     @OneToMany(mappedBy="trip")
     private List<Waypoint> waypoints;
+//    @ManyToOne(cascade = CascadeType.MERGE)
+//    @JoinColumn(name="user_id", nullable=false)
+//    private User user;
 
 
 
