@@ -37,7 +37,16 @@ public class TripController {
     }
 
     //UPDATE
+    @PostMapping("/update")
+    @ResponseBody
+    public Trip updateTrip(@RequestBody Trip trip){
+        return tripService.updateTrip(trip);
+    }
     //DELETE
-
+    @DeleteMapping("/{tripId}")
+    @ResponseBody
+    public boolean deleteTripById(@PathVariable String tripId){
+        return tripService.deleteTripById(Integer.parseInt(tripId));
+    }
 
 }

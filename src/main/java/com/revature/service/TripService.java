@@ -29,5 +29,17 @@ public class TripService {
     }
 
     //UPDATE
+    public Trip updateTrip(Trip trip) {
+        return tripRepository.save(trip);
+    }
+
     //DELETE
+    public boolean deleteTripById(Integer tripId) {
+        if(tripRepository.existsById(tripId)){
+            tripRepository.deleteById(tripId);
+            return true;
+        }
+        return false;
+    }
+
 }
