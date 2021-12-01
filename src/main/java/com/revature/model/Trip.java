@@ -21,7 +21,7 @@ public class Trip {
 
     @OneToMany(mappedBy="trip")
     private List<Waypoint> waypoints;
-//    @ManyToOne
+//    @ManyToOne(cascade = CascadeType.MERGE)
 //    @JoinColumn(name="user_id", nullable=false)
 //    private User user;
 

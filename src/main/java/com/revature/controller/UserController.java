@@ -20,14 +20,15 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
-
-    @PostMapping
+    @PostMapping("/create")
+    @ResponseBody
     public User createNewUser(@RequestBody User user) {
         return userService.createNewUser(user);
+    }
+    @GetMapping
+    @ResponseBody
+    public User getUserById(@PathVariable String userId){
+        return userService.getUserById(Integer.parseInt(userId));
     }
 
 }
