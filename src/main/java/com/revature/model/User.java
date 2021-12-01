@@ -21,4 +21,5 @@ public class User {
 
 //    @OneToMany(mappedBy="user")
 //    private List<Trip> trips;
+    private String password;
 }
