@@ -15,15 +15,15 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    //CREATE
     public User createNewUser(User user) {
         return userRepository.save(user);
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
-    }
-
+    //READ
     public User getUserById(Integer userId) {
         return userRepository.getUserByUserId(userId);
     }
+    //UPDATE
+    //DELETE
 }

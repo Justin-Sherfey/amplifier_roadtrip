@@ -30,11 +30,11 @@ public class TripController {
         return tripService.getTripById(Integer.parseInt(tripId));
     }
 
-//    @GetMapping("/getAll/{userId}")
-//    @ResponseBody
-//    public List<Trip> getAllTripsById(@PathVariable String userId) {
-//        return tripService.getAllTripsById(Integer.parseInt(userId));
-//    }
+    @GetMapping("/getAll/{userId}")
+    @ResponseBody
+    public List<Trip> getAllTripsById(@PathVariable String userId) {
+        return tripService.getAllTripsById(Integer.parseInt(userId));
+    }
 
     //UPDATE
     //DELETE
