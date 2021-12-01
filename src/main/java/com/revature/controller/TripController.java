@@ -16,6 +16,19 @@ public class TripController {
     public TripController(TripService tripService) {
         this.tripService = tripService;
     }
+    //CREATE
+    @PostMapping
+    @ResponseBody
+    public Trip createTrip(@RequestBody Trip trip){
+        return tripService.createTrip(trip);
+    }
+
+    //READ
+    @GetMapping("/{tripId}")
+    @ResponseBody
+    public Trip getTripById(@PathVariable String tripId){
+        return tripService.getTripById(Integer.parseInt(tripId));
+    }
 
     @GetMapping
     @ResponseBody
@@ -23,10 +36,8 @@ public class TripController {
         return tripService.getAllTrips();
     }
 
-    @GetMapping
-    @ResponseBody
-    public List<Waypoint> getWaypointsByID(Integer tripId){
-        return tripService.getWayPointById(tripId);
-    }
+    //UPDATE
+    //DELETE
+
 
 }

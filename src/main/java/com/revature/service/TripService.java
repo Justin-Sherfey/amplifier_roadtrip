@@ -14,13 +14,16 @@ public class TripService {
         this.tripRepository = tripRepository;
     }
 
+    public Trip createTrip(Trip trip){
+        return tripRepository.save(trip);
+    }
+
     public List<Trip> getAllTrips() {
         return tripRepository.findAll();
     }
 
-    public List<Waypoint> getWayPointById(Integer tripId){
-        return tripRepository.getAllWaypointById(tripId);
+
+    public Trip getTripById(Integer tripId) {
+        return tripRepository.getByTripId(tripId);
     }
-
-
 }
