@@ -15,12 +15,31 @@ public class WaypointService {
         this.waypointRepository = userRepository;
     }
 
-    public Waypoint createNewWaypoint(Waypoint waypoint) {
+    //CREATE
+    public Waypoint createWaypoint(Waypoint waypoint) {
         return waypointRepository.save(waypoint);
     }
 
-    public List<Waypoint> getAllWaypoints() {
-        return waypointRepository.findAll();
+    //READ
+    public List<Waypoint> getAllWaypointsById(Integer tripId) {
+        return waypointRepository.findAllByTrip_TripId(tripId);
     }
 
+    public Waypoint getWaypointById(Integer waypointId) {
+        return waypointRepository.getByWaypointId(waypointId);
+    }
+
+    //UPDATE
+    public Waypoint updateWaypointById(Waypoint waypoint){
+        return waypointRepository.save(waypoint);
+    }
+
+    //DELETE
+    public boolean deleteWaypointById(Integer waypointId){
+        if(waypointRepository.existsById(waypointId)) {
+            waypointRepository.deleteById(waypointId);
+            return true;
+        }
+        return false;
+    }
 }

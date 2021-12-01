@@ -21,10 +21,6 @@ public class Trip {
 
     @Column
     private String tripName;
-    @Column
-    private Waypoint startPoint;
-    @Column
-    private Waypoint endPoint;
 
     @OneToMany(mappedBy="trip")
     private List<Waypoint> waypoints;

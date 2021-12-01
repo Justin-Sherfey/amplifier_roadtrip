@@ -30,10 +30,10 @@ public class TripController {
         return tripService.getTripById(Integer.parseInt(tripId));
     }
 
-    @GetMapping
+    @GetMapping("/getAll/{userId}")
     @ResponseBody
-    public List<Trip> getAllTrips() {
-        return tripService.getAllTrips();
+    public List<Trip> getAllTripsById(@PathVariable String userId) {
+        return tripService.getAllTripsById(Integer.parseInt(userId));
     }
 
     //UPDATE

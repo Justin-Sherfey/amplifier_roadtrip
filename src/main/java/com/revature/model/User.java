@@ -2,6 +2,7 @@ package com.revature.model;
 
 import lombok.*;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -17,4 +18,6 @@ public class User {
 
     @Column(unique = true)
     private String username;
+
+    private List<Trip> trips;
 }

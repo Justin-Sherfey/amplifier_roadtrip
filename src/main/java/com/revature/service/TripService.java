@@ -14,16 +14,20 @@ public class TripService {
         this.tripRepository = tripRepository;
     }
 
+    //CREATE
     public Trip createTrip(Trip trip){
         return tripRepository.save(trip);
     }
 
-    public List<Trip> getAllTrips() {
-        return tripRepository.findAll();
+    //READ
+    public List<Trip> getAllTripsById(Integer userId) {
+        return tripRepository.findAllByUser_userId(userId);
     }
-
 
     public Trip getTripById(Integer tripId) {
         return tripRepository.getByTripId(tripId);
     }
+
+    //UPDATE
+    //DELETE
 }
