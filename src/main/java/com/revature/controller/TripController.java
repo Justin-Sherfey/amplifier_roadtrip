@@ -7,6 +7,7 @@ import com.revature.model.Waypoint;
 import com.revature.service.TripService;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController()
 @RequestMapping(value = "/trips")
 public class TripController {
@@ -17,6 +18,7 @@ public class TripController {
         this.tripService = tripService;
     }
     //CREATE
+    @CrossOrigin(origins = "http://localhost:3000/")
     @PostMapping("/create")
     @ResponseBody
     public Trip createTrip(@RequestBody Trip trip){
@@ -24,12 +26,14 @@ public class TripController {
     }
 
     //READ
+    @CrossOrigin(origins = "http://localhost:3000/")
     @GetMapping("/{tripId}")
     @ResponseBody
     public Trip getTripById(@PathVariable String tripId){
         return tripService.getTripById(Integer.parseInt(tripId));
     }
 
+    @CrossOrigin(origins = "http://localhost:3000/")
     @GetMapping("/getAll/{userId}")
     @ResponseBody
     public List<Trip> getAllTripsById(@PathVariable String userId) {
@@ -37,12 +41,15 @@ public class TripController {
     }
 
     //UPDATE
+    @CrossOrigin(origins = "http://localhost:3000/")
     @PostMapping("/update")
     @ResponseBody
     public Trip updateTrip(@RequestBody Trip trip){
         return tripService.updateTrip(trip);
     }
     //DELETE
+
+    @CrossOrigin(origins = "http://localhost:3000/")
     @DeleteMapping("/{tripId}")
     @ResponseBody
     public boolean deleteTripById(@PathVariable String tripId){

@@ -6,6 +6,7 @@ import com.revature.model.Waypoint;
 import com.revature.service.WaypointService;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController()
 @RequestMapping(value = "/waypoints")
 public class WaypointController {
@@ -18,18 +19,20 @@ public class WaypointController {
 
 
     //CREATE
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/create")
     @ResponseBody
     public Waypoint createWaypoint(@RequestBody Waypoint waypoint){
         return waypointService.createWaypoint(waypoint);
     }
     //READ
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/{waypointId}")
     @ResponseBody
     public Waypoint getWaypointById(@PathVariable String waypointId){
         return waypointService.getWaypointById(Integer.parseInt(waypointId));
     }
-
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getAll/{tripId}")
     @ResponseBody
     public List<Waypoint> getAllWaypointsById(@PathVariable String tripId) {
@@ -37,6 +40,7 @@ public class WaypointController {
     }
 
 
+    @CrossOrigin(origins = "http://localhost:3000")
     //UPDATE
     @PostMapping("/update")
     @ResponseBody
@@ -44,6 +48,7 @@ public class WaypointController {
         return waypointService.updateWaypoint(waypoint);
     }
     //DELETE
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/{waypointId}")
     @ResponseBody
     public boolean deleteWaypointById(@PathVariable String waypointId){

@@ -4,6 +4,7 @@ import com.revature.model.User;
 import com.revature.service.AccountService;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController()
 @RequestMapping
 public class AccountController {
@@ -26,11 +27,13 @@ public class AccountController {
      * incorrect.
      * 
      */
+    @CrossOrigin(origins = "http://localhost:3000/")
     @PostMapping(value = "/register")
     public User registerNewUser(@RequestBody User user) {
         return accountService.registerNewUser(user);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000/")
     @PostMapping(value = "/login")
     public User validateLoginCredentials(@RequestBody User user) {
         return accountService.validateLoginCredentials(user);

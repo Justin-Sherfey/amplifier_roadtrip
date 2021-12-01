@@ -6,7 +6,7 @@ import com.revature.model.User;
 import com.revature.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
-
+@CrossOrigin(origins = "http://localhost:3000/")
 @RestController()
 @RequestMapping(value = "/users")
 public class UserController {
@@ -18,6 +18,7 @@ public class UserController {
     }
 
     //CREATE
+    @CrossOrigin(origins = "http://localhost:3000/")
     @PostMapping("/create")
     @ResponseBody
     public User createNewUser(@RequestBody User user) {
@@ -25,6 +26,7 @@ public class UserController {
     }
 
     //READ
+    @CrossOrigin(origins = "http://localhost:3000/")
     @GetMapping("/{userId}")
     @ResponseBody
     public User getUserById(@PathVariable String userId) {
