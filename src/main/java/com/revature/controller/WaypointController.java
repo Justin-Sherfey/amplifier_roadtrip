@@ -40,8 +40,8 @@ public class WaypointController {
     //UPDATE
     @PostMapping("/update")
     @ResponseBody
-    public Waypoint editWayPointByID(@RequestBody Waypoint waypoint){
-        return waypointService.updateWaypointById(waypoint);
+    public Waypoint updateWaypoint(@RequestBody Waypoint waypoint){
+        return waypointService.updateWaypoint(waypoint);
     }
     //DELETE
     @DeleteMapping("/{waypointId}")
