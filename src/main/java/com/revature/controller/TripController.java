@@ -16,17 +16,28 @@ public class TripController {
     public TripController(TripService tripService) {
         this.tripService = tripService;
     }
-
-    @GetMapping
+    //CREATE
+    @PostMapping("/create")
     @ResponseBody
-    public List<Trip> getAllTrips() {
-        return tripService.getAllTrips();
+    public Trip createTrip(@RequestBody Trip trip){
+        return tripService.createTrip(trip);
     }
 
-    @GetMapping
+    //READ
+    @GetMapping("/{tripId}")
     @ResponseBody
-    public List<Waypoint> getWaypointsByID(Integer tripId){
-        return tripService.getWayPointById(tripId);
+    public Trip getTripById(@PathVariable String tripId){
+        return tripService.getTripById(Integer.parseInt(tripId));
     }
+
+//    @GetMapping("/getAll/{userId}")
+//    @ResponseBody
+//    public List<Trip> getAllTripsById(@PathVariable String userId) {
+//        return tripService.getAllTripsById(Integer.parseInt(userId));
+//    }
+
+    //UPDATE
+    //DELETE
+
 
 }
