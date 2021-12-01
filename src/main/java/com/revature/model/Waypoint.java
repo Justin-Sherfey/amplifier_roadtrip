@@ -1,5 +1,6 @@
 package com.revature.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import javax.persistence.*;
 
@@ -17,7 +18,6 @@ public class Waypoint {
 
     @Column
     private String waypointName;
-
     @Column(nullable = false)
     private double longitude;
     @Column(nullable = false)
@@ -25,6 +25,7 @@ public class Waypoint {
 
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name="trip_id", nullable=false)
+    @JsonBackReference
     private Trip trip;
 
 

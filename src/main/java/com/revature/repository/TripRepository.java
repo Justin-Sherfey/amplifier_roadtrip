@@ -9,5 +9,5 @@ import java.util.List;
 public interface TripRepository extends JpaRepository<Trip, Integer> {
     Trip getByTripId(Integer tripId);
 
-//    List<Trip> findAllByUser_user_id(Integer userId);
+    List<Trip> findAllByUser_UserId(Integer userId);
 }
