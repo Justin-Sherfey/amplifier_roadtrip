@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/trips")
 public class TripController {
 
-    private TripService tripService;
+    private final TripService tripService;
 
     public TripController(TripService tripService) {
         this.tripService = tripService;

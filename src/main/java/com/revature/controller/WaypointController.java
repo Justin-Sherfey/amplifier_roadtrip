@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/waypoints")
 public class WaypointController {
 
-    private WaypointService waypointService;
+    private final WaypointService waypointService;
 
     public WaypointController(WaypointService waypointService) {
         this.waypointService = waypointService;
