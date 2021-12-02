@@ -17,3 +17,4 @@ phases:
 artifacts:
   files:
     - target/Amplifire_RoadTrip-1.0.jar
+  discard-paths: yes
