@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -17,6 +17,8 @@ public class UserService {
 
     //CREATE
     public User createNewUser(User user) {
+        if (userRepository.existsByUsername(user.getUsername()))
+            return null; //TODO perhaps throw exception???
         return userRepository.save(user);
     }
 
@@ -32,7 +34,7 @@ public class UserService {
 
     //DELETE
     public boolean deleteUserById(Integer userId) {
-        if(userRepository.existsById(userId)) {
+        if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);
             return true;
         }

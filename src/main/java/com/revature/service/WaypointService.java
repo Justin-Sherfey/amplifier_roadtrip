@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class WaypointService {
 
-    private WaypointRepository waypointRepository;
+    private final WaypointRepository waypointRepository;
 
     public WaypointService(WaypointRepository userRepository) {
         this.waypointRepository = userRepository;

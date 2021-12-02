@@ -13,7 +13,8 @@ import javax.persistence.*;
 public class Waypoint {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO,generator="waypoint_generator")
+    @SequenceGenerator(name="waypoint_generator", sequenceName = "waypoint_seq")
     private int waypointId;
 
     @Column
