@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/users")
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -30,6 +30,8 @@ public class UserController {
     public User getUserById(@PathVariable String userId) {
         return userService.getUserById(Integer.parseInt(userId));
     }
+
+
 
     //UPDATE
     @PostMapping("/update")
