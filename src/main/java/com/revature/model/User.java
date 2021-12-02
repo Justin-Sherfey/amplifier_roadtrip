@@ -1,5 +1,6 @@
 package com.revature.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import javax.persistence.*;
 import java.util.List;
@@ -18,8 +19,11 @@ public class User {
 
     @Column(unique = true)
     private String username;
-
-//    @OneToMany(mappedBy="user")
-//    private List<Trip> trips;
+    @Column(nullable = false)
     private String password;
+
+    @OneToMany(mappedBy="user")
+    @JsonManagedReference
+    private List<Trip> trips;
+
 }

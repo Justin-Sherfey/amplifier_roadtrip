@@ -30,7 +30,7 @@ public class WaypointService {
     }
 
     //UPDATE
-    public Waypoint updateWaypointById(Waypoint waypoint){
+    public Waypoint updateWaypoint(Waypoint waypoint){
         return waypointRepository.save(waypoint);
     }
 
