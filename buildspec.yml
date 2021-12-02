@@ -16,4 +16,5 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - target/Amplifire_RoadTrip-1.0.jar
+    - target/*.jar
+  discard-paths: yes
