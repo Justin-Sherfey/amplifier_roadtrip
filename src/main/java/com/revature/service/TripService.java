@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 public class TripService {
-    private TripRepository tripRepository;
+    private final TripRepository tripRepository;
 
     public TripService(TripRepository tripRepository) {
         this.tripRepository = tripRepository;
