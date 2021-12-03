@@ -9,21 +9,21 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private static UserRepository userRepository = null;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     //CREATE
-    public User createNewUser(User user) {
+    public static User createNewUser(User user) {
         if (userRepository.existsByUsername(user.getUsername()))
             return null; //TODO perhaps throw exception???
         return userRepository.save(user);
     }
 
     //READ
-    public User getUserById(Integer userId) {
+    public static User getUserById(Integer userId) {
         return userRepository.getUserByUserId(userId);
     }
 
@@ -33,7 +33,7 @@ public class UserService {
     }
 
     //DELETE
-    public boolean deleteUserById(Integer userId) {
+    public static boolean deleteUserById(Integer userId) {
         if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);
             return true;

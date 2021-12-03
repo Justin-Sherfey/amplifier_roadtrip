@@ -27,4 +27,11 @@ public class User {
     @JsonManagedReference
     private List<Trip> trips;
 
+
+    public User(String username, String password, List<Trip> trips) {
+        this.username = username;
+        this.password = password;
+        this.trips = trips;
+    }
+
 }
