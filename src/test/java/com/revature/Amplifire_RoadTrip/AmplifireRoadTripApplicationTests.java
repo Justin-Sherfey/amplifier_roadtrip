@@ -37,6 +37,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureMockMvc
 class AmplifireRoadTripApplicationTests {
 
+
 	@Autowired
 	private AccountController accountController;
 
@@ -51,6 +52,8 @@ class AmplifireRoadTripApplicationTests {
 
 	@Autowired
 	private MockMvc mockMvc;
+
+	public UserService userService;
 
 	@Test
 	void accountContextLoads() throws Exception {
@@ -75,24 +78,23 @@ class AmplifireRoadTripApplicationTests {
 	@Test
 	public void testCreateUser() throws Exception {
 		User user = new User("Ryan", "qwerty1234", null);
-		assertNotEquals(null, UserService.createNewUser(user));
+		assertNotEquals(null, userService.createNewUser(user));
 	}
 
 	@Test
 	public void testGetUser() throws Exception {
 		User user2 = new User("Jackson", "qwerty1234", null);
 		UserService.createNewUser(user2);
-		assertNotEquals(null, UserService.getUserById(1));
+		assertNotEquals(null, userService.getUserById(1));
 	}
 
 	@Test
 	public void testDeleteUser() throws Exception {
 		User user3 = new User("Miles", "qwerty1234", null);
 		UserService.createNewUser(user3);
-		assertNotEquals(null, UserService.getUserById(1));
-		UserService.deleteUserById(1);
-		assertEquals(null, UserService.getUserById(1));
+		assertNotEquals(null, userService.getUserById(1));
+		userService.deleteUserById(1);
+		assertEquals(null, userService.getUserById(1));
 	}
-
 
 }

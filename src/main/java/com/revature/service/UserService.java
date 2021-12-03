@@ -23,7 +23,7 @@ public class UserService {
     }
 
     //READ
-    public static User getUserById(Integer userId) {
+    public User getUserById(Integer userId) {
         return userRepository.getUserByUserId(userId);
     }
 
@@ -33,7 +33,7 @@ public class UserService {
     }
 
     //DELETE
-    public static boolean deleteUserById(Integer userId) {
+    public boolean deleteUserById(Integer userId) {
         if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);
             return true;
