@@ -14,7 +14,7 @@ public class AccountService {
         this.userRepository = userRepository;
     }
 
-    //TODO these should both be eventually replaced by JWT response tokens and ResponseEntity<?>
+    //TODO both these methods should eventually implement JWT response tokens and ResponseEntity<?>
 
     /**
      * Check that input credentials are a valid match w/in the DataBase
@@ -24,11 +24,10 @@ public class AccountService {
     public User validateLoginCredentials(User user) {
         User returningUser = userRepository
                 .findByUsername(user.getUsername())
-                .orElseThrow(InvalidCredentialsException::new);
-                //username couldn't be found
+                .orElseThrow(InvalidCredentialsException::new);//username couldn't be found
 
         if(user.getPassword().equals(returningUser.getPassword()))
-            return returningUser;
+            return returningUser; //valid username and password
         else
             throw new InvalidCredentialsException();
             //username was found but password didn't match
@@ -37,12 +36,18 @@ public class AccountService {
     /**
      * if the username doesn't already exist, add it into the database
      * @param user a user supplied by client side containing a new password and (potentially) new username
-     * @return a registered user if it's a valid login
+     * @return the newly registered user if it's a valid login
      */
     public User registerNewUser(User user) {
-        return userRepository
-                .findByUsername(user.getUsername())
-                .orElseThrow(InvalidCredentialsException::new);
+        if(user.getUsername() == null || user.getPassword() == null)
+            throw new InvalidCredentialsException(); //user needs both a username and password to register
+
+        if(userRepository.existsByUsername(user.getUsername()))
+            throw new InvalidCredentialsException();
+        else
+            userRepository.save(user); //there wasn't a username collision, so we can save the new user.
+
+        return userRepository.getUserByUsername(user.getUsername());//guaranteed since we saved it.
     }
 
 }
