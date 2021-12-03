@@ -43,7 +43,7 @@ public class AccountService {
             throw new InvalidCredentialsException(); //user needs both a username and password to register
 
         if(userRepository.existsByUsername(user.getUsername()))
-            throw new InvalidCredentialsException();
+            throw new InvalidCredentialsException();//username collision
         else
             userRepository.save(user); //there wasn't a username collision, so we can save the new user.
 
