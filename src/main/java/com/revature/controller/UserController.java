@@ -31,8 +31,6 @@ public class UserController {
         return userService.getUserById(Integer.parseInt(userId));
     }
 
-
-
     //UPDATE
     @PostMapping("/update")
     @ResponseBody
