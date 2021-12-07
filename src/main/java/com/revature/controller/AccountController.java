@@ -2,30 +2,23 @@ package com.revature.controller;
 
 import com.revature.model.User;
 import com.revature.service.AccountService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.security.InvalidAlgorithmParameterException;
 
 @RestController()
 @RequestMapping
 public class AccountController {
 
-    private AccountService accountService;
+    private final AccountService accountService;
 
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
     }
 
-    /**
-     * 
-     * registerNewUser() and validateLoginCredentials() return
-     * Users if the operation was successful, and null if not. This is not final,
-     * and needs to be replaced once we figure out how the frontend recieves and
-     * handles responses from the API.
-     * 
-     * null for registerNewUser() currently means the user already exists.
-     * null for validateLoginCredentials() means the username or password was
-     * incorrect.
-     * 
-     */
+    //TODO @RequestBody might be a bad exposure, but I don't know if we've learned best practice yet.
+
     @PostMapping(value = "/register")
     public User registerNewUser(@RequestBody User user) {
         return accountService.registerNewUser(user);

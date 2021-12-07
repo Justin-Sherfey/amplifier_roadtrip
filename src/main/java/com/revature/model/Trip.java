@@ -1,5 +1,6 @@
 package com.revature.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import javax.persistence.*;
@@ -14,12 +15,20 @@ import java.util.List;
 public class Trip {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO,generator="trip_generator")
+    @SequenceGenerator(name="trip_generator", sequenceName = "trip_seq")
     private int tripId;
 
-    @OneToMany(mappedBy="entireTrip")
+    @Column
+    private String tripName;
+    @OneToMany(mappedBy="trip")
     @JsonManagedReference
-    List<Waypoint> waypoints;
+    private List<Waypoint> waypoints;
+
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="user_id", nullable=false)
+    @JsonBackReference
+    private User user;
 
 
 

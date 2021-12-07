@@ -7,5 +7,7 @@ import java.util.List;
 
 @Repository
 public interface TripRepository extends JpaRepository<Trip, Integer> {
-    public List<Waypoint> getAllWaypointById(Integer waypointId);
+    Trip getByTripId(Integer tripId);
+
+    List<Trip> findAllByUser_UserId(Integer userId);
 }

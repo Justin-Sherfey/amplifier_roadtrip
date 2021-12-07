@@ -13,17 +13,21 @@ import javax.persistence.*;
 public class Waypoint {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO,generator="waypoint_generator")
+    @SequenceGenerator(name="waypoint_generator", sequenceName = "waypoint_seq")
     private int waypointId;
 
+    @Column
+    private String waypointName;
     @Column(nullable = false)
     private double longitude;
     @Column(nullable = false)
     private double latitude;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="trip_id", nullable=false)
     @JsonBackReference
-    private Trip entireTrip;
+    private Trip trip;
 
 
 }
