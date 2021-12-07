@@ -37,6 +37,8 @@ public class User implements UserDetails {
         this.username = username;
         this.password = password;
         this.trips = trips;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();

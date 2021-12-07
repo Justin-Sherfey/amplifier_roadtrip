@@ -10,21 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
-import static org.hamcrest.Matchers.containsString;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -84,17 +71,17 @@ class AmplifireRoadTripApplicationTests {
 	@Test
 	public void testGetUser() throws Exception {
 		User user2 = new User("Jackson", "qwerty1234", null);
-		UserService.createNewUser(user2);
+		userService.createNewUser(user2);
 		assertNotEquals(null, userService.getUserById(1));
 	}
 
 	@Test
 	public void testDeleteUser() throws Exception {
 		User user3 = new User("Miles", "qwerty1234", null);
-		UserService.createNewUser(user3);
+		userService.createNewUser(user3);
 		assertNotEquals(null, userService.getUserById(1));
 		userService.deleteUserById(1);
-		assertEquals(null, userService.getUserById(1));
+		assertNull(userService.getUserById(1));
 	}
 
 }

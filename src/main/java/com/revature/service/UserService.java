@@ -1,11 +1,8 @@
 package com.revature.service;
 
 import com.revature.model.User;
-import com.revature.model.exception.InvalidCredentialsException;
 import com.revature.repository.UserRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UserService {
