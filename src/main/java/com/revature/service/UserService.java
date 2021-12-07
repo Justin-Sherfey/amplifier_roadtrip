@@ -1,6 +1,7 @@
 package com.revature.service;
 
 import com.revature.model.User;
+import com.revature.model.exception.InvalidCredentialsException;
 import com.revature.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,11 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    // === CRUD methodology === //
+
     //CREATE
     public User createNewUser(User user) {
+        //this 'if' may be extraneous entirely. instructor's code leaves this stmt out. Since unique = true, DB already takes care of it
         if (userRepository.existsByUsername(user.getUsername()))
             return null; //TODO perhaps throw exception???
         return userRepository.save(user);
