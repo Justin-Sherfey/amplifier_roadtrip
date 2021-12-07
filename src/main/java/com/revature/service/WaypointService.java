@@ -9,33 +9,33 @@ import org.springframework.stereotype.Service;
 @Service
 public class WaypointService {
 
-    private final WaypointRepository waypointRepository;
+    private static WaypointRepository waypointRepository;
 
     public WaypointService(WaypointRepository userRepository) {
         this.waypointRepository = userRepository;
     }
 
     //CREATE
-    public Waypoint createWaypoint(Waypoint waypoint) {
+    public static Waypoint createWaypoint(Waypoint waypoint) {
         return waypointRepository.save(waypoint);
     }
 
     //READ
-    public List<Waypoint> getAllWaypointsById(Integer tripId) {
+    public static List<Waypoint> getAllWaypointsById(Integer tripId) {
         return waypointRepository.findAllByTrip_TripId(tripId);
     }
 
-    public Waypoint getWaypointById(Integer waypointId) {
+    public static Waypoint getWaypointById(Integer waypointId) {
         return waypointRepository.getByWaypointId(waypointId);
     }
 
     //UPDATE
-    public Waypoint updateWaypoint(Waypoint waypoint){
+    public static Waypoint updateWaypoint(Waypoint waypoint){
         return waypointRepository.save(waypoint);
     }
 
     //DELETE
-    public boolean deleteWaypointById(Integer waypointId){
+    public static boolean deleteWaypointById(Integer waypointId){
         if(waypointRepository.existsById(waypointId)) {
             waypointRepository.deleteById(waypointId);
             return true;
