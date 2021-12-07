@@ -4,7 +4,9 @@ import java.security.InvalidAlgorithmParameterException;
 import java.util.List;
 
 import com.revature.model.User;
+import com.revature.security.util.JwtUtil;
 import com.revature.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,12 +14,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController()
 @RequestMapping(value = "/users")
 public class UserController {
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private JwtUtil jwtUtil;
 
-    private final UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     //CREATE
     @PostMapping("/create")
@@ -27,10 +28,10 @@ public class UserController {
     }
 
     //READ
-    @GetMapping("/{userId}")
+    @GetMapping
     @ResponseBody
-    public User getUserById(@PathVariable String userId) {
-        return userService.getUserById(Integer.parseInt(userId));
+    public User getUserByToken(@RequestHeader("Authorization") String token) {
+        return userService.getUserByUsername(jwtUtil.extractUsername(token));
     }
 
     //UPDATE
