@@ -20,8 +20,8 @@ import java.util.List;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO,generator="user_generator")
-    @SequenceGenerator(name="user_generator", sequenceName = "user_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "user_generator")
+    @SequenceGenerator(name = "user_generator", sequenceName = "user_seq")
     private int userId;
 
     @Column(unique = true)
@@ -29,9 +29,15 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy="user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.MERGE)
     @JsonManagedReference
     private List<Trip> trips;
+
+    public User(String username, String password, List<Trip> trips) {
+        this.username = username;
+        this.password = password;
+        this.trips = trips;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

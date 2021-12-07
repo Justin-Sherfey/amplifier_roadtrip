@@ -1,8 +1,5 @@
 package com.revature.controller;
 
-import java.security.InvalidAlgorithmParameterException;
-import java.util.List;
-
 import com.revature.model.User;
 import com.revature.security.util.JwtUtil;
 import com.revature.service.UserService;
