@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private static UserRepository userRepository = null;
+    private UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
