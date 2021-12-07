@@ -15,24 +15,24 @@ public class UserService {
 
     // === CRUD methodology === //
 
-    //CREATE
+    // CREATE
     public User createNewUser(User user) {
         if (userRepository.existsByUsername(user.getUsername()))
-            return null; //TODO perhaps throw exception???
+            return null; // TODO perhaps throw exception???
         return userRepository.save(user);
     }
 
-    //READ
+    // READ
     public User getUserById(Integer userId) {
         return userRepository.getUserByUserId(userId);
     }
 
-    //UPDATE
+    // UPDATE
     public User updateUser(User user) {
         return userRepository.save(user);
     }
 
-    //DELETE
+    // DELETE
     public boolean deleteUserById(Integer userId) {
         if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);

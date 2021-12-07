@@ -13,8 +13,8 @@ import javax.persistence.*;
 public class Waypoint {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO,generator="waypoint_generator")
-    @SequenceGenerator(name="waypoint_generator", sequenceName = "waypoint_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "waypoint_generator")
+    @SequenceGenerator(name = "waypoint_generator", sequenceName = "waypoint_seq")
     private int waypointId;
 
     @Column
@@ -24,10 +24,9 @@ public class Waypoint {
     @Column(nullable = false)
     private double latitude;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="trip_id", nullable=false)
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "trip_id", nullable = false)
     @JsonBackReference
     private Trip trip;
-
 
 }
