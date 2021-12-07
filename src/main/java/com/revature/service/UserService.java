@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private static UserRepository userRepository = null;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -20,7 +20,6 @@ public class UserService {
 
     //CREATE
     public User createNewUser(User user) {
-        //this 'if' may be extraneous entirely. instructor's code leaves this stmt out. Since unique = true, DB already takes care of it
         if (userRepository.existsByUsername(user.getUsername()))
             return null; //TODO perhaps throw exception???
         return userRepository.save(user);

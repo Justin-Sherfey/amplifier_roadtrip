@@ -33,6 +33,10 @@ public class User implements UserDetails {
     @JsonManagedReference
     private List<Trip> trips;
 
+    public User(String username, String password, List<Trip> trips) {
+        this.username = username;
+        this.password = password;
+        this.trips = trips;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
