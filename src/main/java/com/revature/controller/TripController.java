@@ -3,6 +3,7 @@ package com.revature.controller;
 import java.util.List;
 
 import com.revature.model.Trip;
+import com.revature.model.Waypoint;
 import com.revature.service.TripService;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,15 +11,42 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/trips")
 public class TripController {
 
-    private TripService tripService;
+    private final TripService tripService;
 
     public TripController(TripService tripService) {
         this.tripService = tripService;
     }
+    //CREATE
+    @PostMapping("/create")
+    @ResponseBody
+    public Trip createTrip(@RequestBody Trip trip){
+        return tripService.createTrip(trip);
+    }
 
-    @GetMapping
-    public List<Trip> getAllTrips() {
-        return tripService.getAllTrips();
+    //READ
+    @GetMapping("/{tripId}")
+    @ResponseBody
+    public Trip getTripById(@PathVariable String tripId){
+        return tripService.getTripById(Integer.parseInt(tripId));
+    }
+
+    @GetMapping("/getAll/{userId}")
+    @ResponseBody
+    public List<Trip> getAllTripsById(@PathVariable String userId) {
+        return tripService.getAllTripsById(Integer.parseInt(userId));
+    }
+
+    //UPDATE
+    @PostMapping("/update")
+    @ResponseBody
+    public Trip updateTrip(@RequestBody Trip trip){
+        return tripService.updateTrip(trip);
+    }
+    //DELETE
+    @DeleteMapping("/{tripId}")
+    @ResponseBody
+    public boolean deleteTripById(@PathVariable String tripId){
+        return tripService.deleteTripById(Integer.parseInt(tripId));
     }
 
 }
