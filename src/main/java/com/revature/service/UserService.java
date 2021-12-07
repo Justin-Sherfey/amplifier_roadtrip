@@ -1,6 +1,7 @@
 package com.revature.service;
 
 import com.revature.model.User;
+import com.revature.model.exception.InvalidCredentialsException;
 import com.revature.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    // === CRUD methodology === //
+
     //CREATE
-    public static User createNewUser(User user) {
+    public User createNewUser(User user) {
         if (userRepository.existsByUsername(user.getUsername()))
             return null; //TODO perhaps throw exception???
         return userRepository.save(user);
