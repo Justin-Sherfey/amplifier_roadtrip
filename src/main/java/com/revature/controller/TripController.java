@@ -3,7 +3,6 @@ package com.revature.controller;
 import java.util.List;
 
 import com.revature.model.Trip;
-import com.revature.model.Waypoint;
 import com.revature.service.TripService;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,17 +15,18 @@ public class TripController {
     public TripController(TripService tripService) {
         this.tripService = tripService;
     }
-    //CREATE
+
+    // CREATE
     @PostMapping("/create")
     @ResponseBody
-    public Trip createTrip(@RequestBody Trip trip){
+    public Trip createTrip(@RequestBody Trip trip) {
         return tripService.createTrip(trip);
     }
 
-    //READ
+    // READ
     @GetMapping("/{tripId}")
     @ResponseBody
-    public Trip getTripById(@PathVariable String tripId){
+    public Trip getTripById(@PathVariable String tripId) {
         return tripService.getTripById(Integer.parseInt(tripId));
     }
 
@@ -36,16 +36,17 @@ public class TripController {
         return tripService.getAllTripsById(Integer.parseInt(userId));
     }
 
-    //UPDATE
+    // UPDATE
     @PostMapping("/update")
     @ResponseBody
-    public Trip updateTrip(@RequestBody Trip trip){
+    public Trip updateTrip(@RequestBody Trip trip) {
         return tripService.updateTrip(trip);
     }
-    //DELETE
+
+    // DELETE
     @DeleteMapping("/{tripId}")
     @ResponseBody
-    public boolean deleteTripById(@PathVariable String tripId){
+    public boolean deleteTripById(@PathVariable String tripId) {
         return tripService.deleteTripById(Integer.parseInt(tripId));
     }
 
