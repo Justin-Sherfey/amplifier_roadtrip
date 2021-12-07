@@ -15,21 +15,19 @@ import java.util.List;
 public class Trip {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO,generator="trip_generator")
-    @SequenceGenerator(name="trip_generator", sequenceName = "trip_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "trip_generator")
+    @SequenceGenerator(name = "trip_generator", sequenceName = "trip_seq")
     private int tripId;
 
     @Column
     private String tripName;
-    @OneToMany(mappedBy="trip")
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.MERGE)
     @JsonManagedReference
     private List<Waypoint> waypoints;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name="user_id", nullable=false)
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User user;
-
-
 
 }
