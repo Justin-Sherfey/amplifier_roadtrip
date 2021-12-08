@@ -15,6 +15,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Controller for handling HTTP requests concerning registering new accounts and logging in to existing accounts,
+ * uses AccountService in order to persist data
+ */
 @RestController()
 @RequestMapping
 public class AccountController {
@@ -28,14 +32,23 @@ public class AccountController {
     @Autowired
     private JwtUtil jwtUtil;
 
-    // TODO @RequestBody might be a bad exposure, but I don't know if we've learned
-    // best practice yet.
 
+    /**
+     * Parses register URI request and calls AccountService to register new user and persist to database
+     * @param user user to be registered
+     * @return registered user if successful
+     */
     @PostMapping(value = "/register")
     public User registerNewUser(@RequestBody User user) {
         return accountService.registerNewUser(user);
     }
 
+    /**
+     * Takes in a login URI request and creates an authentication token for the front-end session authentication
+     * @param authenticationRequest the authentication request that will verify the username and password
+     * @return the authentication token to be used for verification in future requests
+     * @throws Exception if username or password are not valid
+     */
     @PostMapping(value = "/login")
     public ResponseEntity<?> createAuthenticateToken(@RequestBody AuthenticationRequest authenticationRequest)
             throws Exception {

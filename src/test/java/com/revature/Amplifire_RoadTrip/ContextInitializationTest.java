@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Testing service layer
+ * Testing initializations of all the controllers
 */
 @SpringBootTest
 class ContextInitializationTest {
