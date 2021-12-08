@@ -4,21 +4,18 @@ import com.revature.model.User;
 import com.revature.service.UserService;
 import com.revature.security.util.JwtUtil;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.*;
 
 @RestController()
 @RequestMapping(value = "/users")
 public class UserController {
 
-    @Autowired
     private final UserService userService;
-    @Autowired
-    private JwtUtil jwtUtil;
+    private final JwtUtil jwtUtil;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, JwtUtil jwtUtil) {
         this.userService = userService;
+        this.jwtUtil = jwtUtil;
     }
 
     // READ
