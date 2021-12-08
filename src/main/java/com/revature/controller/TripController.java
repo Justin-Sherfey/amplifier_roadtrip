@@ -17,7 +17,7 @@ public class TripController {
     }
 
     // CREATE
-    @PostMapping("/create")
+    @PostMapping
     @ResponseBody
     public Trip createTrip(@RequestBody Trip trip) {
         return tripService.createTrip(trip);
@@ -37,7 +37,7 @@ public class TripController {
     }
 
     // UPDATE
-    @PostMapping("/update")
+    @PutMapping
     @ResponseBody
     public Trip updateTrip(@RequestBody Trip trip) {
         return tripService.updateTrip(trip);
