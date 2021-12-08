@@ -25,7 +25,7 @@ public class Trip {
     @Column
     private String tripName;
 
-    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Waypoint> waypoints;
 
