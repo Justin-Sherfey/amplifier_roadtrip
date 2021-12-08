@@ -16,37 +16,32 @@ public class WaypointController {
         this.waypointService = waypointService;
     }
 
-
-    //CREATE
-    @PostMapping("/create")
-    @ResponseBody
-    public Waypoint createWaypoint(@RequestBody Waypoint waypoint){
+    // CREATE
+    @PostMapping
+    public Waypoint createWaypoint(@RequestBody Waypoint waypoint) {
         return waypointService.createWaypoint(waypoint);
     }
-    //READ
+
+    // READ
     @GetMapping("/{waypointId}")
-    @ResponseBody
-    public Waypoint getWaypointById(@PathVariable String waypointId){
+    public Waypoint getWaypointById(@PathVariable String waypointId) {
         return waypointService.getWaypointById(Integer.parseInt(waypointId));
     }
 
     @GetMapping("/getAll/{tripId}")
-    @ResponseBody
     public List<Waypoint> getAllWaypointsById(@PathVariable String tripId) {
         return waypointService.getAllWaypointsById(Integer.parseInt(tripId));
     }
 
-
-    //UPDATE
-    @PostMapping("/update")
-    @ResponseBody
-    public Waypoint updateWaypoint(@RequestBody Waypoint waypoint){
+    // UPDATE
+    @PutMapping
+    public Waypoint updateWaypoint(@RequestBody Waypoint waypoint) {
         return waypointService.updateWaypoint(waypoint);
     }
-    //DELETE
+
+    // DELETE
     @DeleteMapping("/{waypointId}")
-    @ResponseBody
-    public boolean deleteWaypointById(@PathVariable String waypointId){
+    public boolean deleteWaypointById(@PathVariable String waypointId) {
         return waypointService.deleteWaypointById(Integer.parseInt(waypointId));
     }
 }
