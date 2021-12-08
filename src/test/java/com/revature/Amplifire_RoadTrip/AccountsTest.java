@@ -1,40 +1,63 @@
 package com.revature.Amplifire_RoadTrip;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.controller.AccountController;
 import com.revature.model.User;
-import com.revature.repository.UserRepository;
+import com.revature.service.AccountService;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@AutoConfigureMockMvc
-@TestPropertySource(locations = "classpath:test-application.properties")
 public class AccountsTest {
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private AccountController accountController;
-
-    private MockMvc mockMvc;
-    private ObjectMapper mapper = new ObjectMapper();
+    // ACCOUNTS TESTS
 
     @Test
-    public void testRegisterNewUser() throws Exception {
+    void testRegisterNewUser() {
+        User user = new User("evan", "password", null);
+        User userReturn = AccountService.registerNewUser(user);
+        assertEquals(user.getUsername(), userReturn.getUsername());
+    }
 
+    @Test
+    void testValidateLoginCredentials() {
         User user = new User("justin", "password", null);
-        user = userRepository.save(user);
+        AccountService.registerNewUser(user);
+        assertEquals(user.getUsername(), AccountService.validateLoginCredentials(user).getUsername());
+    }
 
-        mockMvc = MockMvcBuilders.standaloneSetup(accountController).build();
+    @Test
+    void testInvalidLogin() {
+        User user = new User("user100", "password", null);
+        User falseUser = new User("user100", "pass", null);
+        AccountService.registerNewUser(user);
 
-        //mockMvc.perform(Mock)
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            AccountService.validateLoginCredentials(falseUser);
+        });
+        assertNotEquals(null , exception);
+    }
 
+    @Test
+    void testRegisterExistingUser() {
+        User user = new User("user101", "password", null);
+        User user2 = new User("user101", "passwor", null);
+
+        AccountService.registerNewUser(user);
+
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            AccountService.registerNewUser(user2);
+        });
+
+        assertNotEquals(null, exception);
+    }
+
+    @Test
+    void testNullUser() {
+        User user = new User(null, null, null);
+        Exception exception = assertThrows(RuntimeException.class, () -> {
+            AccountService.registerNewUser(user);
+        });
+        assertNotEquals(null, exception);
     }
 }

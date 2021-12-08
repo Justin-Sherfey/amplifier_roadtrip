@@ -29,10 +29,11 @@ public class Waypoint {
     @JsonBackReference
     private Trip trip;
 
-    public Waypoint(String waypointName, double longitude, double latitude) {
+    public Waypoint(String waypointName, double longitude, double latitude, Trip trip) {
         this.waypointName = waypointName;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.trip = trip;
     }
 
     public int getWaypointId() {

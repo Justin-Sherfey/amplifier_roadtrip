@@ -1,54 +1,54 @@
 package com.revature.Amplifire_RoadTrip;
 
-import static org.hamcrest.Matchers.containsString;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.revature.controller.UserController;
 import com.revature.model.User;
 import com.revature.service.UserService;
 import org.junit.jupiter.api.Test;
-
-import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.controller.AccountController;
-import com.revature.model.User;
-import com.revature.repository.UserRepository;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-@WebMvcTest(UserController.class)
+
+@SpringBootTest
 public class UsersTest {
-    @Autowired
-    MockMvc mockMvc;
 
-    @MockBean
-    private UserService userService;
-
-    User user = new User("justin", "qwerty1234", null);
+    // USER TESTS
+    @Test
+    void testCreateNewUser() {
+        User user = new User("isaiah", "password", null);
+        assertEquals(user.getUsername(), UserService.createNewUser(user).getUsername());
+    }
 
     @Test
-    public void createUser() throws Exception {
-        when(userService.createNewUser(user)).thenReturn(user);
+    void testCreateExistingUser() {
+        User user = new User("isaiah2", "pass", null);
+        UserService.createNewUser(user);
+        User user2 = new User("isaiah2", "qwerty123", null);
+        assertEquals(null, UserService.createNewUser(user2));
+    }
 
-        this.mockMvc.perform(post("/users/create"));
+    @Test
+    void testGetUserById() {
+        User user = new User("noah", "password", null);
+        User returningUser = UserService.createNewUser(user);
+        assertEquals(user.getUsername(), UserService.getUserById(returningUser.getUserId()).getUsername());
+    }
+
+    @Test
+    void testUpdateUser() {
+        User user = new User("user1", "password", null);
+        UserService.createNewUser(user);
+        user.setPassword("password3");
+        User returnedUser = UserService.updateUser(user);
+        assertEquals("password3", returnedUser.getPassword());
+    }
+
+    @Test
+    void testDeleteUserById() {
+        User user = new User("user2", "password", null);
+        user = UserService.createNewUser(user);
+        boolean success = UserService.deleteUserById(user.getUserId());
+        assertEquals(true, success);
+        assertEquals(null, UserService.getUserById(user.getUserId()));
     }
 
 }

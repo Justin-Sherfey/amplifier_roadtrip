@@ -1,39 +1,77 @@
 package com.revature.Amplifire_RoadTrip;
 
-import static org.hamcrest.Matchers.containsString;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import com.revature.controller.TripController;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.revature.model.Trip;
+import com.revature.model.User;
 import com.revature.service.TripService;
+import com.revature.service.UserService;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
 
-@WebMvcTest(TripController.class)
+import java.util.List;
+
+@SpringBootTest
 public class TripsTest {
-    @Autowired
-    MockMvc mockMvc;
 
-    @MockBean
-    private TripService tripService;
-
-    //User user = new User("justin", "qwerty1234", null);
-
-    /*
+    // TRIP TESTS
     @Test
-    public void createUser() throws Exception {
-        when(userService.createNewUser(user)).thenReturn(user);
-
-        this.mockMvc.perform(post("/users/create"));
+    void testCreateTrip() {
+        User user = new User("user 3", "password", null);
+        user = UserService.createNewUser(user);
+        Trip trip = new Trip("roadtrip", user);
+        assertEquals(trip.getTripName(), TripService.createTrip(trip).getTripName());
     }
-    */
+
+    @Test
+    void testGetAllTripsById() {
+        User user = new User("user 4", "password", null);
+        user = UserService.createNewUser(user);
+        Trip trip1 = new Trip("roadtrip1", user);
+        Trip trip2 = new Trip("roadtrip2", user);
+        Trip trip3 = new Trip("roadtrip3", user);
+
+        TripService.createTrip(trip1);
+        TripService.createTrip(trip2);
+        TripService.createTrip(trip3);
+
+        List<Trip> returnedTrips = TripService.getAllTripsById(user.getUserId());
+
+        assertEquals(trip1.getTripName(), returnedTrips.get(0).getTripName());
+        assertEquals(trip2.getTripName(), returnedTrips.get(1).getTripName());
+        assertEquals(trip3.getTripName(), returnedTrips.get(2).getTripName());
+    }
+
+    @Test
+    void testGetTripById() {
+        User user = new User("user 5", "password", null);
+        user = UserService.createNewUser(user);
+        Trip trip = new Trip("roadtrip4", user);
+        trip = TripService.createTrip(trip);
+        assertEquals(trip.getTripName(), TripService.getTripById(trip.getTripId()).getTripName());
+    }
+
+    @Test
+    void testUpdateTrip() {
+        User user = new User("user 6", "password", null);
+        user = UserService.createNewUser(user);
+        Trip trip = new Trip("roadtrip5", user);
+        trip = TripService.createTrip(trip);
+        trip.setTripName("roadtrip6");
+        Trip returnedTrip = TripService.updateTrip(trip);
+        assertEquals("roadtrip6", returnedTrip.getTripName());
+    }
+
+    @Test
+    void testDeleteTripById() {
+        User user = new User("user 7", "password", null);
+        user = UserService.createNewUser(user);
+        Trip trip = new Trip("roadtrip7", user);
+        trip = TripService.createTrip(trip);
+        boolean success = TripService.deleteTripById(trip.getTripId());
+        assertEquals(true, success);
+        assertEquals(null, TripService.getTripById(trip.getTripId()));
+    }
+
+
 }
