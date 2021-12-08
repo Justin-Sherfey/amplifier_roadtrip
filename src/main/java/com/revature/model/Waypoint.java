@@ -35,44 +35,4 @@ public class Waypoint {
         this.latitude = latitude;
         this.trip = trip;
     }
-
-    public int getWaypointId() {
-        return waypointId;
-    }
-
-    public void setWaypointId(int waypointId) {
-        this.waypointId = waypointId;
-    }
-
-    public String getWaypointName() {
-        return waypointName;
-    }
-
-    public void setWaypointName(String waypointName) {
-        this.waypointName = waypointName;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public Trip getTrip() {
-        return trip;
-    }
-
-    public void setTrip(Trip trip) {
-        this.trip = trip;
-    }
 }
