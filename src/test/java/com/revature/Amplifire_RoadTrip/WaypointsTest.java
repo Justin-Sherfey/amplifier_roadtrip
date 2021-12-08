@@ -13,9 +13,15 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Tests waypoint service layer
+ */
 @SpringBootTest
 public class WaypointsTest {
 
+    /**
+     * Tests creating a new waypoint
+     */
     @Test
     void testCreateWaypoint() {
         User user = new User("user 8", "password", null);
@@ -26,6 +32,9 @@ public class WaypointsTest {
         assertEquals(waypoint.getWaypointName(), WaypointService.createWaypoint(waypoint).getWaypointName());
     }
 
+    /**
+     * Tests getting all the waypoints by a trip id
+     */
     @Test
     void testGetAllWaypointsById() {
         User user = new User("user 9", "password", null);
@@ -43,6 +52,9 @@ public class WaypointsTest {
         assertEquals(waypoint2.getWaypointName(), listWaypoints.get(1).getWaypointName());
     }
 
+    /**
+     * Tests getting a singular waypoint using a waypoint id
+     */
     @Test
     void testGetWaypointById() {
         User user = new User("user 10", "password", null);
@@ -57,6 +69,9 @@ public class WaypointsTest {
                 WaypointService.getWaypointById(waypoint.getWaypointId()).getWaypointName());
     }
 
+    /**
+     * Tests updating a waypoint
+     */
     @Test
     void testUpdateWaypoint() {
         User user = new User("user 11", "password", null);
@@ -73,6 +88,9 @@ public class WaypointsTest {
         assertEquals(60.0, waypoint.getLatitude());
     }
 
+    /**
+     * Tests deleting a waypoint using an id
+     */
     @Test
     void testDeleteWaypointById() {
         User user = new User("user 12", "password", null);

@@ -7,17 +7,24 @@ import com.revature.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
+/**
+ * Testing user service layer
+ */
 @SpringBootTest
 public class UsersTest {
 
-    // USER TESTS
+    /**
+     * Tests creating a new user
+     */
     @Test
     void testCreateNewUser() {
         User user = new User("isaiah", "password", null);
         assertEquals(user.getUsername(), UserService.createNewUser(user).getUsername());
     }
 
+    /**
+     * Tests creating a new user when the username already exists
+     */
     @Test
     void testCreateExistingUser() {
         User user = new User("isaiah2", "pass", null);
@@ -26,6 +33,9 @@ public class UsersTest {
         assertEquals(null, UserService.createNewUser(user2));
     }
 
+    /**
+     * Tests getting user information with a valid id
+     */
     @Test
     void testGetUserById() {
         User user = new User("noah", "password", null);
@@ -33,6 +43,9 @@ public class UsersTest {
         assertEquals(user.getUsername(), UserService.getUserById(returningUser.getUserId()).getUsername());
     }
 
+    /**
+     * Tests updating a user
+     */
     @Test
     void testUpdateUser() {
         User user = new User("user1", "password", null);
@@ -42,6 +55,9 @@ public class UsersTest {
         assertEquals("password3", returnedUser.getPassword());
     }
 
+    /**
+     * Tests deleting a user
+     */
     @Test
     void testDeleteUserById() {
         User user = new User("user2", "password", null);

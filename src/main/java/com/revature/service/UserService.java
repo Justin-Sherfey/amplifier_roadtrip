@@ -13,30 +13,45 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    // === CRUD methodology === //
-
-    // CREATE
+    /**
+     *
+     * @param user
+     * @return
+     */
     public static User createNewUser(User user) {
         if (userRepository.existsByUsername(user.getUsername()))
-            return null; // TODO perhaps throw exception???
+            return null;
         return userRepository.save(user);
     }
 
-    // READ
+    /**
+     *
+     * @param userId
+     * @return
+     */
     public static User getUserById(Integer userId) {
         return userRepository.getUserByUserId(userId);
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     */
     public static User getUserByUsername(String username) {
         return userRepository.getUserByUsername(username);
     }
 
-    //UPDATE
+
     public static User updateUser(User user) {
         return userRepository.save(user);
     }
 
-    // DELETE
+    /**
+     *
+     * @param userId
+     * @return
+     */
     public static boolean deleteUserById(Integer userId) {
         if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);

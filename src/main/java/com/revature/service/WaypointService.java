@@ -6,6 +6,9 @@ import com.revature.model.Waypoint;
 import com.revature.repository.WaypointRepository;
 import org.springframework.stereotype.Service;
 
+/**
+ *
+ */
 @Service
 public class WaypointService {
 
@@ -15,26 +18,47 @@ public class WaypointService {
         this.waypointRepository = userRepository;
     }
 
-    //CREATE
+    /**
+     *
+     * @param waypoint
+     * @return
+     */
     public static Waypoint createWaypoint(Waypoint waypoint) {
         return waypointRepository.save(waypoint);
     }
 
-    //READ
+    /**
+     *
+     * @param tripId
+     * @return
+     */
     public static List<Waypoint> getAllWaypointsById(Integer tripId) {
         return waypointRepository.findAllByTrip_TripId(tripId);
     }
 
+    /**
+     *
+     * @param waypointId
+     * @return
+     */
     public static Waypoint getWaypointById(Integer waypointId) {
         return waypointRepository.getByWaypointId(waypointId);
     }
 
-    //UPDATE
+    /**
+     *
+     * @param waypoint
+     * @return
+     */
     public static Waypoint updateWaypoint(Waypoint waypoint){
         return waypointRepository.save(waypoint);
     }
 
-    //DELETE
+    /**
+     *
+     * @param waypointId
+     * @return
+     */
     public static boolean deleteWaypointById(Integer waypointId){
         if(waypointRepository.existsById(waypointId)) {
             waypointRepository.deleteById(waypointId);

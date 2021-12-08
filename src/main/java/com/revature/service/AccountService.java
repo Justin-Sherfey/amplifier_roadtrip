@@ -5,6 +5,9 @@ import com.revature.model.exception.InvalidCredentialsException;
 import com.revature.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+/**
+ * Communicates with repository layer and controller layer to register/login a user, persists data to database
+ */
 @Service
 public class AccountService {
 

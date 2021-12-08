@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * Interface that uses JpaRepository to access database using ORM functions, handles User table
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
     User getUserByUserId(Integer userId);
