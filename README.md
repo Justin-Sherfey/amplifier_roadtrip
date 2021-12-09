@@ -48,9 +48,10 @@ More detailed information on how to use the features can be found below
 
 The user can register or login into an account using the following URI's. This is in the case where the server is deployed locally to localhost.
 
-| #### REGISTER A USER |
-| ---------------------| 
-| New user will be registered and added to database
+---
+#### REGISTER A USER 
+
+New user will be registered and added to database
 
 POST REQUEST
 ```
@@ -71,7 +72,7 @@ JSON BODY
 ```
 
 This will return the JSON User object of the new user saved on the database
-|
+---
 #### LOGIN 
 User will be authenticated and given a JWT token if valid login attempt
 
