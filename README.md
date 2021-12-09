@@ -162,8 +162,8 @@ HEADER
 JSON BODY
 ```
 {
-    "tripName" : "roadtrip10",
-    "user" :  { [JSON User object owner] }
+    "tripName" : "[road trip name]",
+    "user" :  { "userId" : [user id of user who will own trip] }
     "waypoints" : [array of JSON waypoint objects] 
 }
 ```
@@ -246,44 +246,45 @@ HEADER
 
 JSON BODY
 ```
-
+{
+    "waypointName":"Viriginia",
+    "longitude": 24.59,
+    "latitude": 60.11,
+    "trip":
+    {
+        "tripId": [trip id that waypoint will be apart of]
+    }
+}
 ```
+This will return a JSON waypoint object of the waypoint created in the database
 ______________________________________________________________________________________________________________________________________________
 
 ### Retrieve a waypoints information
 GET REQUEST
 ```
-localhost:5000/waypoints
+localhost:5000/waypoints/{waypointId}
 ```
 
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
-JSON BODY
-```
-
-```
+This will return a JSON object of the waypoint if found in the database
 ______________________________________________________________________________________________________________________________________________
 
 ### Retrieve all the waypoints belonging to a trip
 GET REQUEST
 ```
-localhost:5000/waypoints
+localhost:5000/waypoints/getAll/{tripId}
 ```
 
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
-JSON BODY
-```
-
-```
+This will return a list of JSON objects of the waypoints that are a part of the trip of tripID
 ______________________________________________________________________________________________________________________________________________
 
 ### Update a waypoint
@@ -295,31 +296,26 @@ localhost:5000/waypoints
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
-
+{ [updated] waypoint object }
 ```
 ______________________________________________________________________________________________________________________________________________
 
 ### Delete a waypoint
 DELETE REQUEST
 ```
-localhost:5000/waypoints
+localhost:5000/waypoints/{waypointId}
 ```
 
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
-JSON BODY
-```
-
-```
+This will return a boolean corresponding to the success of the deletion
 
 ______________________________________________________________________________________________________________________________________________
 
