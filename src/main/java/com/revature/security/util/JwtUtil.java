@@ -12,7 +12,8 @@ import java.util.Map;
 import java.util.function.Function;
 
 /**
- *
+ * This class handles the main logic of assembling, using, and extracting from
+ * a JWT
  */
 @Service
 public class JwtUtil {
