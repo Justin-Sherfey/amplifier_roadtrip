@@ -39,10 +39,31 @@ The user can register or login into an account using the following URI's. This i
 #### REGISTER A USER 
 New user will be registered and added to database
 
-POST request
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
+
+POST REQUEST
 ```
 localhost:5000/register
 ```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
 JSON BODY
 ```
 { 
@@ -100,9 +121,32 @@ PUT request
 ```
 localhost:5000/users
 ```
-Headers
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 #### Delete a User
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
+
 
 ______________________________________________________________________________________________________________________________________________
 
@@ -110,14 +154,84 @@ ________________________________________________________________________________
 Trip objects saved in database can be managed 
 
 #### Create a new trip
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 #### Retrieve a trips information
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 #### Retrieve all the trips owned by a user
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 #### Update a trips information
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 #### Delete a trip
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 ______________________________________________________________________________________________________________________________________________
 
@@ -126,14 +240,84 @@ ________________________________________________________________________________
 Waypoint objects saved in database can be managed
 
 #### Create a new waypoint
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 #### Retrieve a waypoints information
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 #### Retrieve all the waypoints belonging to a trip
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 #### Update a waypoint
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 #### Delete a waypoint
+REQUEST
+```
+
+```
+
+HEADER
+| Key          | Value            |
+| -----------  | ---------------- |
+| Content-Type | application/json |
+
+JSON BODY
+```
+
+```
 
 ______________________________________________________________________________________________________________________________________________
 
