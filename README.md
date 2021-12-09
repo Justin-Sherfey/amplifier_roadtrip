@@ -26,6 +26,8 @@ In the case that both are shut down, one can deploy the API server locally using
 1) Clone the repository to local machine and open using IDE of choice
 2) Configure to compatible JDK/JRE (Java 8 or higher)
 3) Navigate to src/main/resources/application.properties and change Database credentials to a valid database of choice
+4) Create a runtime configuration with AmplifireRoadTripApplication.java as the main method
+5) Run on machine, server should now be running on [localhost:5000](localhost:5000)
 
 ## Features
 
