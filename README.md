@@ -44,13 +44,13 @@ More detailed information on how to use the features can be found below
   <a href="#Waypoint-Management">Waypoint Management</a> •
 </p>
 
-### User Login and Registration
+# User Login and Registration
 
 The user can register or login into an account using the following URI's. This is in the case where the server is deployed locally to localhost.
 
 
 ______________________________________________________________________________________________________________________________________________
-#### REGISTER A USER 
+## REGISTER A USER 
 
 New user will be registered and added to database
 
