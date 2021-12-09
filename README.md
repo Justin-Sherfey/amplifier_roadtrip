@@ -39,11 +39,11 @@ The user can register or login into an account using the following URI's. This i
 #### REGISTER A USER 
 New user will be registered and added to database
 
-**POST request**
+POST request
 ```
 localhost:5000/register
 ```
-**JSON BODY**
+JSON BODY
 ```
 { 
   "username" : "[exampleUsername]",
@@ -56,11 +56,11 @@ This will return the JSON User object of the new user saved on the database
 #### LOGIN 
 User will be authenticated and given a JWT token if valid login attempt
 
-**POST request**
+POST request
 ```
 localhost:5000/login
 ```
-**JSON BODY**
+JSON BODY
 ```
 { 
   "username" : "[exampleUsername]",
@@ -77,11 +77,11 @@ User objects saved in database can be managed
 #### Retrieve a Users information
 Will be retrieved using authentication token given at login
 
-**GET request**
+GET request
 ```
 localhost:5000/users
 ```
-**Headers**
+Headers
 ```
 Header key - Authorization
 Header value - Bearer [token]
