@@ -19,7 +19,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 
 /**
- *
+ * This class handles majority of configuration for SpringSecurity, including who is allowed
+ * to access the endpoints and which endpoints are locked down requiring JWTs
  */
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
