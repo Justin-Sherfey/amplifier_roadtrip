@@ -74,6 +74,19 @@ ________________________________________________________________________________
 User objects saved in database can be managed 
 
 #### Retrieve a Users information
+Will be retrieved using authentication token given at login
+
+**GET request**
+```
+localhost:5000/users
+```
+**Headers**
+```
+Header key - Authorization
+Header value - Bearer [token]
+```
+
+This will return the users information if found on the database in a JSON Object
 
 #### Update a Users information
 
