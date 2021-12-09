@@ -34,6 +34,9 @@ In the case that both are shut down, one can deploy the API server locally using
 
 ## Features
 
+The core features of the API is the registration/login authentication as well as managing the different objects on the application such as users, trips, and waypoints. 
+More detailed information on how to use the features can be found below
+
 <p>
   <a href="#User-Login-and-Registration">User Login and Registration</a> •
   <a href="#User-Management">User Management</a> •
