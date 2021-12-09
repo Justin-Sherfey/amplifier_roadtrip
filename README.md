@@ -20,6 +20,9 @@ The Amplifier Road Trip API uses a Java backend to provide functionality and dat
 ## Features
 
 ### User Login and Registration
+'''
+https://localhost:5000/register
+'''
 
 ### User Management
 
