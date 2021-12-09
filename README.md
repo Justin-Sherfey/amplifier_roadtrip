@@ -34,7 +34,7 @@ In the case that both are shut down, one can deploy the API server locally using
 
 <p>
   <a href="#User-Login-and-Registration">User Login and Registration</a> •
-  <a href="#User-Management">Getting Started</a> •
+  <a href="#User-Management">User Management</a> •
   <a href="#Trip-Management">Trip Management</a> •
   <a href="#Waypoint-Management">Waypoint Management</a> •
 </p>
