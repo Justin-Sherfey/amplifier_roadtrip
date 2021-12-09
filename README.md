@@ -19,6 +19,14 @@ The Amplifier Road Trip API uses a Java backend to provide functionality and dat
 
 ## Features
 
+### User Login and Registration
+
+### User Management
+
+### Trip Management
+
+### Waypoint Management
+
 ## Getting Started
 
 ## Team
