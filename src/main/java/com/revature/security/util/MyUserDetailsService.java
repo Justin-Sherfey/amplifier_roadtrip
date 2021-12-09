@@ -16,8 +16,9 @@ public class MyUserDetailsService implements UserDetailsService {
     private UserRepository userRepository;
 
     /**
-     *
-     * @param username
+     * this method essentially handles generating userDetails from a user. Userdetails is essentially potential
+     * payload information when generating JWT. However we arent using any payload information at the moment.
+     * @param username username to check against
      * @return
      * @throws UsernameNotFoundException
      */
