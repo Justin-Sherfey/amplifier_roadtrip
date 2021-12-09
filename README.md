@@ -5,8 +5,8 @@
 <p>
   <a href="#About">About</a> •
   <a href="#Getting-Started">Getting Started</a> •
-  <a href="#Features">Features</a> •
   <a href="#Design">Design</a> •
+  <a href="#Features">Features</a> •
   <a href="#Team">Team</a> 
 </p>
 
@@ -29,6 +29,8 @@ In the case that both are shut down, one can deploy the API server locally using
 3) Navigate to src/main/resources/application.properties and change Database credentials to a valid database of choice
 4) Create a runtime configuration with AmplifireRoadTripApplication.java as the main method
 5) Run on machine, local tomcat server should now be running on [localhost:5000](localhost:5000)
+
+## Design
 
 ## Features
 
@@ -328,7 +330,6 @@ JSON BODY
 
 ______________________________________________________________________________________________________________________________________________
 
-## Design
 
 ## Team
 
