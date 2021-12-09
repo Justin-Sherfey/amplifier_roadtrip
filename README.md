@@ -2,7 +2,7 @@
 
 ### Java API for the Amplifier Road Trip web application
 
-<p align="center">
+<p>
   <a href="#About">About</a> •
   <a href="#Features">Features</a> •
   <a href="#Getting-Started">Getting Started</a> •
