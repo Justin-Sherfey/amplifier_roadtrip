@@ -44,13 +44,13 @@ More detailed information on how to use the features can be found below
   <a href="#Waypoint-Management">Waypoint Management</a> •
 </p>
 
-# User Login and Registration
+## User Login and Registration
 
 The user can register or login into an account using the following URI's. This is in the case where the server is deployed locally to localhost.
 
 
 ______________________________________________________________________________________________________________________________________________
-## REGISTER A USER 
+### REGISTER A USER 
 
 New user will be registered and added to database
 
@@ -75,7 +75,7 @@ JSON BODY
 This will return the JSON User object of the new user saved on the database
 ______________________________________________________________________________________________________________________________________________
 
-#### LOGIN 
+### LOGIN 
 User will be authenticated and given a JWT token if valid login attempt
 
 POST REQUEST
@@ -98,11 +98,11 @@ This will return a JSON object with the jwt token needed for future authenticati
 
 ______________________________________________________________________________________________________________________________________________
 
-### User Management
+## User Management
 User objects saved in database can be managed 
 
 ______________________________________________________________________________________________________________________________________________
-#### Retrieve a Users information
+### Retrieve a Users information
 Will be retrieved using authentication token given at login
 
 GET request
@@ -117,7 +117,7 @@ HEADER
 This will return the users information if found on the database in a JSON Object
 ______________________________________________________________________________________________________________________________________________
 
-#### Update a Users information
+### Update a Users information
 PUT REQUEST
 ```
 localhost:5000/users
@@ -136,7 +136,7 @@ JSON BODY
 This will return the updated user object in the database
 ______________________________________________________________________________________________________________________________________________
 
-#### Delete a User
+### Delete a User
 DELETE REQUEST
 ```
 localhost:5000/users/{userid}
@@ -150,10 +150,10 @@ This will return a boolean corresponding to the success of the deletion
 
 ______________________________________________________________________________________________________________________________________________
 
-### Trip Management
+## Trip Management
 Trip objects saved in database can be managed 
-
-#### Create a new trip
+______________________________________________________________________________________________________________________________________________
+### Create a new trip
 REQUEST
 ```
 localhost:5000/trips
@@ -169,79 +169,81 @@ JSON BODY
 ```
 localhost:5000/trips
 ```
-
-#### Retrieve a trips information
-REQUEST
-```
-localhost:5000/trips
-```
-
-HEADER
-| Key           | Value              |
-| -----------   | ----------------   |
-| Content-Type  | application/json   |
-| Authorization | Bearer [token_val] |
-
-JSON BODY
-```
-
-```
-
-#### Retrieve all the trips owned by a user
-REQUEST
-```
-localhost:5000/trips
-```
-
-HEADER
-| Key           | Value              |
-| -----------   | ----------------   |
-| Content-Type  | application/json   |
-| Authorization | Bearer [token_val] |
-
-JSON BODY
-```
-
-```
-
-#### Update a trips information
-REQUEST
-```
-localhost:5000/trips
-```
-
-HEADER
-| Key           | Value              |
-| -----------   | ----------------   |
-| Content-Type  | application/json   |
-| Authorization | Bearer [token_val] |
-
-JSON BODY
-```
-
-```
-
-#### Delete a trip
-REQUEST
-```
-localhost:5000/trips
-```
-
-HEADER
-| Key           | Value              |
-| -----------   | ----------------   |
-| Content-Type  | application/json   |
-| Authorization | Bearer [token_val] |
-
-JSON BODY
-```
-
-```
-
 ______________________________________________________________________________________________________________________________________________
 
+### Retrieve a trips information
+REQUEST
+```
+localhost:5000/trips
+```
 
-### Waypoint Management
+HEADER
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
+
+JSON BODY
+```
+
+```
+______________________________________________________________________________________________________________________________________________
+
+### Retrieve all the trips owned by a user
+REQUEST
+```
+localhost:5000/trips
+```
+
+HEADER
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
+
+JSON BODY
+```
+
+```
+______________________________________________________________________________________________________________________________________________
+
+### Update a trips information
+REQUEST
+```
+localhost:5000/trips
+```
+
+HEADER
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
+
+JSON BODY
+```
+
+```
+______________________________________________________________________________________________________________________________________________
+
+### Delete a trip
+REQUEST
+```
+localhost:5000/trips
+```
+
+HEADER
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
+
+JSON BODY
+```
+
+```
+______________________________________________________________________________________________________________________________________________
+
+## Waypoint Management
 Waypoint objects saved in database can be managed
 
 #### Create a new waypoint
@@ -260,8 +262,9 @@ JSON BODY
 ```
 
 ```
+______________________________________________________________________________________________________________________________________________
 
-#### Retrieve a waypoints information
+### Retrieve a waypoints information
 REQUEST
 ```
 localhost:5000/waypoints
@@ -277,8 +280,9 @@ JSON BODY
 ```
 
 ```
+______________________________________________________________________________________________________________________________________________
 
-#### Retrieve all the waypoints belonging to a trip
+### Retrieve all the waypoints belonging to a trip
 REQUEST
 ```
 localhost:5000/waypoints
@@ -294,8 +298,9 @@ JSON BODY
 ```
 
 ```
+______________________________________________________________________________________________________________________________________________
 
-#### Update a waypoint
+### Update a waypoint
 REQUEST
 ```
 localhost:5000/waypoints
@@ -311,8 +316,9 @@ JSON BODY
 ```
 
 ```
+______________________________________________________________________________________________________________________________________________
 
-#### Delete a waypoint
+### Delete a waypoint
 REQUEST
 ```
 localhost:5000/waypoints
