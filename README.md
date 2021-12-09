@@ -107,14 +107,12 @@ localhost:5000/users
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
 This will return the users information if found on the database in a JSON Object
 
 #### Update a Users information
-
-PUT request
+PUT REQUEST
 ```
 localhost:5000/users
 ```
@@ -126,40 +124,22 @@ HEADER
 
 JSON BODY
 ```
-{
-    "userId": 1,
-    "username": "justin",
-    "password": "pass",
-    "trips": [],
-    "enabled": true,
-    "authorities": [
-        {
-            "authority": "user"
-        }
-    ],
-    "credentialsNonExpired": true,
-    "accountNonExpired": true,
-    "accountNonLocked": true
-} 
+{ user object with updated information } 
 ```
+
+This will return the updated user object in the database
 
 #### Delete a User
-REQUEST
+DELETE REQUEST
 ```
-
+localhost:5000/users/{userid}
 ```
-
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
-JSON BODY
-```
-
-```
-
+This will return a boolean corresponding to the success of the deletion
 
 ______________________________________________________________________________________________________________________________________________
 
@@ -169,7 +149,7 @@ Trip objects saved in database can be managed
 #### Create a new trip
 REQUEST
 ```
-
+localhost:5000/trips
 ```
 
 HEADER
@@ -180,13 +160,13 @@ HEADER
 
 JSON BODY
 ```
-
+localhost:5000/trips
 ```
 
 #### Retrieve a trips information
 REQUEST
 ```
-
+localhost:5000/trips
 ```
 
 HEADER
@@ -203,7 +183,7 @@ JSON BODY
 #### Retrieve all the trips owned by a user
 REQUEST
 ```
-
+localhost:5000/trips
 ```
 
 HEADER
@@ -220,7 +200,7 @@ JSON BODY
 #### Update a trips information
 REQUEST
 ```
-
+localhost:5000/trips
 ```
 
 HEADER
@@ -237,7 +217,7 @@ JSON BODY
 #### Delete a trip
 REQUEST
 ```
-
+localhost:5000/trips
 ```
 
 HEADER
@@ -260,7 +240,7 @@ Waypoint objects saved in database can be managed
 #### Create a new waypoint
 REQUEST
 ```
-
+localhost:5000/waypoints
 ```
 
 HEADER
@@ -277,7 +257,7 @@ JSON BODY
 #### Retrieve a waypoints information
 REQUEST
 ```
-
+localhost:5000/waypoints
 ```
 
 HEADER
@@ -294,7 +274,7 @@ JSON BODY
 #### Retrieve all the waypoints belonging to a trip
 REQUEST
 ```
-
+localhost:5000/waypoints
 ```
 
 HEADER
@@ -311,7 +291,7 @@ JSON BODY
 #### Update a waypoint
 REQUEST
 ```
-
+localhost:5000/waypoints
 ```
 
 HEADER
@@ -328,7 +308,7 @@ JSON BODY
 #### Delete a waypoint
 REQUEST
 ```
-
+localhost:5000/waypoints
 ```
 
 HEADER
