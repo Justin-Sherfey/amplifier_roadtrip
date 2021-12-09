@@ -27,7 +27,7 @@ In the case that both are shut down, one can deploy the API server locally using
 2) Configure to compatible JDK/JRE (Java 8 or higher)
 3) Navigate to src/main/resources/application.properties and change Database credentials to a valid database of choice
 4) Create a runtime configuration with AmplifireRoadTripApplication.java as the main method
-5) Run on machine, server should now be running on [localhost:5000](localhost:5000)
+5) Run on machine, local tomcat server should now be running on [localhost:5000](localhost:5000)
 
 ## Features
 
@@ -40,15 +40,28 @@ New user will be registered and added to database
 
 POST request
 ```
-https://localhost:5000/register
+localhost:5000/register
 ```
 JSON BODY
 ```
 { 
-  "username" : "exampleUsername"
-  "password" : "examplePassword"
+  "username" : "[exampleUsername]",
+  "password" : "[examplePassword]"
 }
 ```
+
+This will return the JSON User object of the new user saved on the database
+
+#### LOGIN 
+User will be authenticated and given a JWT token if valid login attempt
+
+POST request
+```
+localhost:5000/login
+```
+JSON BODY
+
+POST request
 
 
 
