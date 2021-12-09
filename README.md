@@ -119,11 +119,11 @@ GET request
 ```
 localhost:5000/users
 ```
-Headers
-```
-Header key - Authorization
-Header value - Bearer [token]
-```
+HEADER
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 This will return the users information if found on the database in a JSON Object
 
@@ -134,9 +134,10 @@ PUT request
 localhost:5000/users
 ```
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -150,9 +151,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -172,9 +174,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -188,9 +191,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -204,9 +208,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -220,9 +225,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -236,9 +242,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -258,9 +265,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -274,9 +282,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -290,9 +299,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -306,9 +316,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
@@ -322,9 +333,10 @@ REQUEST
 ```
 
 HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
+| Key           | Value              |
+| -----------   | ----------------   |
+| Content-Type  | application/json   |
+| Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
