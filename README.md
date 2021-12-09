@@ -32,8 +32,7 @@ In the case that both are shut down, one can deploy the API server locally using
 
 ## Design
 
-This application uses a layered archicture to implement an MVC Design. In this API portion we have the models and controllers which will interact with our view component on the frontend. We also have a service layer that handles communication between the controller layer and model layer as to increase modularity and decrease coupling. The controller
-layer takes in HTTP requests from our web application, and then uses the service layer to manipulate the model layer which updates back to our view on the front end. 
+This application uses a layered archicture to implement an MVC Design. In this API portion we have the models and controllers which will interact with our view component on the frontend. We also have a service layer that handles communication between the controller layer and model layer as to increase modularity and decrease coupling. To summarize the controller layer takes in HTTP requests from our web application, and then uses the service layer to manipulate the model layer which updates back to our view on the front end. 
 
 ## Features
 
