@@ -1,4 +1,4 @@
-<h> Amplifire Road Trip </h>
+<h><center> # Amplifire Road Trip</center> </h>
 
 ### Java API for the Amplifier Road Trip web application
 
