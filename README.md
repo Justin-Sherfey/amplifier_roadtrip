@@ -21,7 +21,7 @@ The Amplifier Road Trip API uses a Java backend to provide functionality and dat
 
 ## Getting Started
 
-The API is deployed online which can be found here, and uses a preconfigured database on AWS. Detailed steps on the features available and how to use them can be found in the features section. 
+The API is deployed online which can be found [here](http://amplifireroadtripbeanstalk-env.eba-amdewhu5.us-west-2.elasticbeanstalk.com/), and uses a preconfigured database on AWS. Detailed steps on the features available and how to use them can be found in the features section. 
 
 In the case that both are shut down, one can deploy the API server locally using these instructions
 
