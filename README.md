@@ -236,7 +236,7 @@ ________________________________________________________________________________
 ## Waypoint Management
 Waypoint objects saved in database can be managed
 
-#### Create a new waypoint
+### Create a new waypoint
 POST REQUEST
 ```
 localhost:5000/waypoints
