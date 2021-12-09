@@ -6,7 +6,8 @@
   <a href="#About">About</a> •
   <a href="#Getting-Started">Getting Started</a> •
   <a href="#Features">Features</a> •
-  <a href="#Team">Features</a> 
+  <a href="#Design">Design</a> •
+  <a href="#Team">Team</a> 
 </p>
 
 ## About
@@ -122,6 +123,10 @@ Waypoint objects saved in database can be managed
 #### Update a waypoint
 
 #### Delete a waypoint
+
+______________________________________________________________________________________________________________________________________________
+
+## Design
 
 ## Team
 
