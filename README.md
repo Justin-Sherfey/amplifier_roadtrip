@@ -38,11 +38,11 @@ The user can register or login into an account using the following URI's. This i
 #### REGISTER A USER 
 New user will be registered and added to database
 
-POST request
+**POST request**
 ```
 localhost:5000/register
 ```
-JSON BODY
+**JSON BODY**
 ```
 { 
   "username" : "[exampleUsername]",
@@ -55,22 +55,54 @@ This will return the JSON User object of the new user saved on the database
 #### LOGIN 
 User will be authenticated and given a JWT token if valid login attempt
 
-POST request
+**POST request**
 ```
 localhost:5000/login
 ```
-JSON BODY
-
-POST request
-
+**JSON BODY**
+```
+{ 
+  "username" : "[exampleUsername]",
+  "password" : "[examplePassword]"
+}
+```
+This will return a JSON object with the jwt token needed for future authentication
 
 
 ### User Management
+User objects saved in database can be managed 
+
+#### Retrieve a Users information
+
+#### Update a Users information
+
+#### Delete a User
 
 ### Trip Management
+Trip objects saved in database can be managed 
+
+#### Create a new trip
+
+#### Retrieve a trips information
+
+#### Retrieve all the trips owned by a user
+
+#### Update a trips information
+
+#### Delete a trip
 
 ### Waypoint Management
+Waypoint objects saved in database can be managed
 
+#### Create a new waypoint
+
+#### Retrieve a waypoints information
+
+#### Retrieve all the waypoints belonging to a trip
+
+#### Update a waypoint
+
+#### Delete a waypoint
 
 ## Team
 
