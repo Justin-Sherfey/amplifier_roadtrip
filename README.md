@@ -32,6 +32,13 @@ In the case that both are shut down, one can deploy the API server locally using
 
 ## Features
 
+<p>
+  <a href="#User-Login-and-Registration">User Login and Registration</a> •
+  <a href="#User-Management">Getting Started</a> •
+  <a href="#Trip-Management">Trip Management</a> •
+  <a href="#Waypoint-Management">Waypoint Management</a> •
+</p>
+
 ### User Login and Registration
 
 The user can register or login into an account using the following URI's. This is in the case where the server is deployed locally to localhost.
