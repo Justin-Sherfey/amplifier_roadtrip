@@ -15,7 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- *
+ * This class handles the actual validation logic. Checking to see if the
+ * JWT is valid.
  */
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
