@@ -11,6 +11,7 @@
 </p>
 
 ## About
+Amplifier Road Trip is a web application that helps users plan road trips in a simple and efficient way. 
 The Amplifier Road Trip API uses a Java backend to provide functionality and database persistance to its front-end counterpart.
 - Layered Architecture Design for increased modularity and lowered coupling
 - AWS RDS for data persistance and storage
