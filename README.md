@@ -48,7 +48,8 @@ More detailed information on how to use the features can be found below
 
 The user can register or login into an account using the following URI's. This is in the case where the server is deployed locally to localhost.
 
----
+
+______________________________________________________________________________________________________________________________________________
 #### REGISTER A USER 
 
 New user will be registered and added to database
@@ -72,7 +73,8 @@ JSON BODY
 ```
 
 This will return the JSON User object of the new user saved on the database
----
+______________________________________________________________________________________________________________________________________________
+
 #### LOGIN 
 User will be authenticated and given a JWT token if valid login attempt
 
@@ -99,6 +101,7 @@ ________________________________________________________________________________
 ### User Management
 User objects saved in database can be managed 
 
+______________________________________________________________________________________________________________________________________________
 #### Retrieve a Users information
 Will be retrieved using authentication token given at login
 
@@ -112,6 +115,7 @@ HEADER
 | Authorization | Bearer [token_val] |
 
 This will return the users information if found on the database in a JSON Object
+______________________________________________________________________________________________________________________________________________
 
 #### Update a Users information
 PUT REQUEST
@@ -130,6 +134,7 @@ JSON BODY
 ```
 
 This will return the updated user object in the database
+______________________________________________________________________________________________________________________________________________
 
 #### Delete a User
 DELETE REQUEST
