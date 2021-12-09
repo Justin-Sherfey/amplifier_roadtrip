@@ -35,11 +35,21 @@ In the case that both are shut down, one can deploy the API server locally using
 
 The user can register or login into an account using the following URI's. This is in the case where the server is deployed locally to localhost.
 
-#### REGISTER A USER
+#### REGISTER A USER 
+New user will be registered and added to database
 
+POST request
 ```
 https://localhost:5000/register
 ```
+JSON BODY
+```
+{ 
+  "username" : "exampleUsername"
+  "password" : "examplePassword"
+}
+```
+
 
 
 ### User Management
