@@ -51,21 +51,6 @@ The user can register or login into an account using the following URI's. This i
 #### REGISTER A USER 
 New user will be registered and added to database
 
-REQUEST
-```
-
-```
-
-HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
-
-JSON BODY
-```
-
-```
-
 POST REQUEST
 ```
 localhost:5000/register
@@ -141,7 +126,21 @@ HEADER
 
 JSON BODY
 ```
-
+{
+    "userId": 1,
+    "username": "justin",
+    "password": "pass",
+    "trips": [],
+    "enabled": true,
+    "authorities": [
+        {
+            "authority": "user"
+        }
+    ],
+    "credentialsNonExpired": true,
+    "accountNonExpired": true,
+    "accountNonLocked": true
+} 
 ```
 
 #### Delete a User
