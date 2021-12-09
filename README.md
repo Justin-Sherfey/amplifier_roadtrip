@@ -59,11 +59,6 @@ POST REQUEST
 localhost:5000/register
 ```
 
-HEADER
-| Key          | Value            |
-| -----------  | ---------------- |
-| Content-Type | application/json |
-
 JSON BODY
 ```
 { 
@@ -154,7 +149,7 @@ ________________________________________________________________________________
 Trip objects saved in database can be managed 
 ______________________________________________________________________________________________________________________________________________
 ### Create a new trip
-REQUEST
+POST REQUEST
 ```
 localhost:5000/trips
 ```
@@ -162,53 +157,49 @@ localhost:5000/trips
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
-localhost:5000/trips
+{
+    "tripName" : "roadtrip10",
+    "user" :  { [JSON User object owner] }
+    "waypoints" : [array of JSON waypoint objects] 
+}
 ```
+Waypoints are optional in initialization. This will return the trip JSON object if successfully added to database
 ______________________________________________________________________________________________________________________________________________
 
 ### Retrieve a trips information
-REQUEST
+GET REQUEST
 ```
-localhost:5000/trips
+localhost:5000/trips/{tripId}
 ```
 
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
-JSON BODY
-```
-
-```
+This will return the Trip JSON object if found in the database
 ______________________________________________________________________________________________________________________________________________
 
 ### Retrieve all the trips owned by a user
-REQUEST
+GET REQUEST
 ```
-localhost:5000/trips
+localhost:5000/trips/getAll/{userId}
 ```
 
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
-JSON BODY
-```
-
-```
+This will return a list of JSON Trip objects of all the trips owned by the user
 ______________________________________________________________________________________________________________________________________________
 
 ### Update a trips information
-REQUEST
+PUT REQUEST
 ```
 localhost:5000/trips
 ```
@@ -216,38 +207,34 @@ localhost:5000/trips
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
 JSON BODY
 ```
-
+{ updated trip JSON object } 
 ```
+This will return the updated JSON Trip object that is updated in the database
 ______________________________________________________________________________________________________________________________________________
 
 ### Delete a trip
-REQUEST
+DELETE REQUEST
 ```
-localhost:5000/trips
+localhost:5000/trips/{tripId}
 ```
 
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
-JSON BODY
-```
-
-```
+This will return a boolean corresponding to the success of the deletion
 ______________________________________________________________________________________________________________________________________________
 
 ## Waypoint Management
 Waypoint objects saved in database can be managed
 
 #### Create a new waypoint
-REQUEST
+POST REQUEST
 ```
 localhost:5000/waypoints
 ```
@@ -255,7 +242,6 @@ localhost:5000/waypoints
 HEADER
 | Key           | Value              |
 | -----------   | ----------------   |
-| Content-Type  | application/json   |
 | Authorization | Bearer [token_val] |
 
 JSON BODY
@@ -265,7 +251,7 @@ JSON BODY
 ______________________________________________________________________________________________________________________________________________
 
 ### Retrieve a waypoints information
-REQUEST
+GET REQUEST
 ```
 localhost:5000/waypoints
 ```
@@ -283,7 +269,7 @@ JSON BODY
 ______________________________________________________________________________________________________________________________________________
 
 ### Retrieve all the waypoints belonging to a trip
-REQUEST
+GET REQUEST
 ```
 localhost:5000/waypoints
 ```
@@ -301,7 +287,7 @@ JSON BODY
 ______________________________________________________________________________________________________________________________________________
 
 ### Update a waypoint
-REQUEST
+PUT REQUEST
 ```
 localhost:5000/waypoints
 ```
@@ -319,7 +305,7 @@ JSON BODY
 ______________________________________________________________________________________________________________________________________________
 
 ### Delete a waypoint
-REQUEST
+DELETE REQUEST
 ```
 localhost:5000/waypoints
 ```
