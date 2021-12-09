@@ -29,11 +29,10 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     /**
      *
-     * @param request
-     * @param response
-     * @param chain
-     * @throws ServletException
-     * @throws IOException
+     * @param request incoming request
+     * @param response response
+     * @param chain not sure, but it continues filting as it goes down the chain. Hence
+     *              why we continue the chain by calling it at end of method
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
