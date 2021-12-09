@@ -10,6 +10,7 @@
 </p>
 
 ## About
+The Amplifier Road Trip API uses a Java backend to provide functionality and database persistance to its front-end counterpart.
 
 ## Features
 
