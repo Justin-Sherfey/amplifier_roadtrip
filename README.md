@@ -68,6 +68,7 @@ localhost:5000/login
 ```
 This will return a JSON object with the jwt token needed for future authentication
 
+______________________________________________________________________________________________________________________________________________
 
 ### User Management
 User objects saved in database can be managed 
@@ -77,6 +78,8 @@ User objects saved in database can be managed
 #### Update a Users information
 
 #### Delete a User
+
+______________________________________________________________________________________________________________________________________________
 
 ### Trip Management
 Trip objects saved in database can be managed 
@@ -90,6 +93,9 @@ Trip objects saved in database can be managed
 #### Update a trips information
 
 #### Delete a trip
+
+______________________________________________________________________________________________________________________________________________
+
 
 ### Waypoint Management
 Waypoint objects saved in database can be managed
