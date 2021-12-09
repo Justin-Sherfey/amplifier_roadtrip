@@ -1,5 +1,7 @@
 # Amplifire Road Trip
 
+### Java API for the Amplifier Road Trip web application
+
 <p align="center">
   <a href="#About">About</a> •
   <a href="#Features">Features</a> •
