@@ -31,11 +31,11 @@ The Amplifier Road Trip API uses a Java backend to provide functionality and dat
 
 ## Team
 
-## Evan Ritchey ##
+**Evan Ritchey**
 
-## Isaiah Anason ##
+**Isaiah Anason**
 
-## Noah Frederick ##
+**Noah Frederick**
 
-## Justin Sherfey ##
+**Justin Sherfey**
 
