@@ -39,7 +39,7 @@ The user can register or login into an account using the following URI's. This i
 #### REGISTER A USER 
 New user will be registered and added to database
 
-POST request
+!POST request
 ```
 localhost:5000/register
 ```
