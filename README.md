@@ -53,7 +53,7 @@ The user can register or login into an account using the following URI's. This i
 
 
 ______________________________________________________________________________________________________________________________________________
-### REGISTER A USER 
+### Register a user 
 
 New user will be registered and added to database
 
@@ -73,7 +73,7 @@ JSON BODY
 This will return the JSON User object of the new user saved on the database
 ______________________________________________________________________________________________________________________________________________
 
-### LOGIN 
+### Login 
 User will be authenticated and given a JWT token if valid login attempt
 
 POST REQUEST
