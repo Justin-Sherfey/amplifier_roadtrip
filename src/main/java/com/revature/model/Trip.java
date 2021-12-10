@@ -7,8 +7,10 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- * Trip model for a trip that belongs to a user and consists of different waypoints
+ * Trip model for a trip that belongs to a user and consists of different
+ * waypoints
  */
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +27,7 @@ public class Trip {
     @Column
     private String tripName;
 
-    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Waypoint> waypoints;
 
@@ -35,12 +37,28 @@ public class Trip {
     private User user;
 
     /**
-     * Constructor for a trip, trip id is auto-generated and stored when persisted to database
+     * Constructor for a trip, trip id is auto-generated and stored when persisted
+     * to database
+     *
      * @param tripName name of the trip
-     * @param user the user it belongs to
+     * @param user     the user it belongs to
      */
     public Trip(String tripName, User user) {
         this.tripName = tripName;
         this.user = user;
     }
 }
+
+    
+
+    
+    
+    
+    
+     
+    
+    
+
+    
+
+    
