@@ -71,7 +71,7 @@ public class WaypointsTest {
 
     /**
      * Tests updating a waypoint
-     */
+     *
     @Test
     void testUpdateWaypoint() {
         User user = new User("user 11", "password", null);
