@@ -74,7 +74,7 @@ public class TripsTest {
 
     /**
      * Testing updating an existing trip
-     */
+     *
     @Test
     void testUpdateTrip() {
         User user = new User("user 6", "password", null);
