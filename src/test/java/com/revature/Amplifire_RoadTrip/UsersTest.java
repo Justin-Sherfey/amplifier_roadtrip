@@ -1,39 +1,70 @@
 package com.revature.Amplifire_RoadTrip;
 
-import static org.hamcrest.Matchers.containsString;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.revature.controller.UserController;
 import com.revature.model.User;
 import com.revature.service.UserService;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.web.servlet.MockMvc;
-
-@WebMvcTest(UserController.class)
+/**
+ * Testing user service layer
+ */
+@SpringBootTest
 public class UsersTest {
-    @Autowired
-    MockMvc mockMvc;
 
-    @MockBean
-    private UserService userService;
-
-    User user = new User("justin", "qwerty1234", null);
-
+    /**
+     * Tests creating a new user
+     */
     @Test
-    public void createUser() throws Exception {
-        when(userService.createNewUser(user)).thenReturn(user);
+    void testCreateNewUser() {
+        User user = new User("isaiah", "password", null);
+        assertEquals(user.getUsername(), UserService.createNewUser(user).getUsername());
+    }
 
-        this.mockMvc.perform(post("/users/create"));
+    /**
+     * Tests creating a new user when the username already exists
+     */
+    @Test
+    void testCreateExistingUser() {
+        User user = new User("isaiah2", "pass", null);
+        UserService.createNewUser(user);
+        User user2 = new User("isaiah2", "qwerty123", null);
+        assertEquals(null, UserService.createNewUser(user2));
+    }
+
+    /**
+     * Tests getting user information with a valid id
+     */
+    @Test
+    void testGetUserById() {
+        User user = new User("noah", "password", null);
+        User returningUser = UserService.createNewUser(user);
+        assertEquals(user.getUsername(), UserService.getUserById(returningUser.getUserId()).getUsername());
+    }
+
+    /**
+     * Tests updating a user
+     */
+    @Test
+    void testUpdateUser() {
+        User user = new User("user1", "password", null);
+        UserService.createNewUser(user);
+        user.setPassword("password3");
+        User returnedUser = UserService.updateUser(user);
+        assertEquals("password3", returnedUser.getPassword());
+    }
+
+    /**
+     * Tests deleting a user
+     */
+    @Test
+    void testDeleteUserById() {
+        User user = new User("user2", "password", null);
+        user = UserService.createNewUser(user);
+        boolean success = UserService.deleteUserById(user.getUserId());
+        assertEquals(true, success);
+        assertEquals(null, UserService.getUserById(user.getUserId()));
     }
 
 }

@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * This class handles the actual validation logic. Checking to see if the
+ * JWT is valid.
+ */
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
@@ -23,6 +27,13 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired
     private JwtUtil jwtUtil;
 
+    /**
+     *
+     * @param request incoming request
+     * @param response response
+     * @param chain not sure, but it continues filting as it goes down the chain. Hence
+     *              why we continue the chain by calling it at end of method
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
