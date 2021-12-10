@@ -45,7 +45,7 @@ public class UsersTest {
 
     /**
      * Tests updating a user
-     */
+     *
     @Test
     void testUpdateUser() {
         User user = new User("user1", "password", null);
