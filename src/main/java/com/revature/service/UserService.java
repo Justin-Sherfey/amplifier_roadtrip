@@ -1,11 +1,13 @@
 package com.revature.service;
 
 import com.revature.model.User;
+import com.revature.model.UserDTO;
 import com.revature.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 /**
- * Communicates with repository and controller layers to perform CRUD functionality for User objects and persist data
+ * Communicates with repository and controller layers to perform CRUD
+ * functionality for User objects and persist data
  * to database
  */
 @Service
@@ -19,6 +21,7 @@ public class UserService {
 
     /**
      * Persists a new user to the database by calling the repository layer
+     * 
      * @param user user being persisted to database
      * @return user object if it is successfully created
      */
@@ -30,6 +33,7 @@ public class UserService {
 
     /**
      * Gets a user object with a userId
+     * 
      * @param userId user id of object being retrieved
      * @return user object if found in database
      */
@@ -39,6 +43,7 @@ public class UserService {
 
     /**
      * Retrieve a user object using the username as an identifier
+     * 
      * @param username the username of the user object being retrieved
      * @return the user object if it is found in the database
      */
@@ -46,9 +51,24 @@ public class UserService {
         return userRepository.getUserByUsername(username);
     }
 
+    /**
+     * Retrieve a user object with sensitive infromation redacted
+     * 
+     * @param username the user whose infromation needs to be redacted
+     * @return the user with sensitive infromation redacted
+     */
+    public static UserDTO getUserInformation(User user) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUsername(user.getUsername());
+        userDTO.setUserId(user.getUserId());
+
+        return userDTO;
+    }
 
     /**
-     * Updates a user object in the database, creates a new user object if it does not exists yet
+     * Updates a user object in the database, creates a new user object if it does
+     * not exists yet
+     * 
      * @param user user object being updated
      * @return the user object if successfully updated
      */
@@ -58,6 +78,7 @@ public class UserService {
 
     /**
      * Delete a user in the database by calling user repository
+     * 
      * @param userId user id of user being deleted
      * @return boolean corresponding to success of deletion
      */
