@@ -47,7 +47,7 @@ public class UserService {
      * @param username the username of the user object being retrieved
      * @return the user object if it is found in the database
      */
-    public User getUserByUsername(String username) {
+    public static User getUserByUsername(String username) {
         return userRepository.getUserByUsername(username);
     }
 
@@ -57,7 +57,7 @@ public class UserService {
      * @param username the user whose infromation needs to be redacted
      * @return the user with sensitive infromation redacted
      */
-    public UserDTO getUserInformation(User user) {
+    public static UserDTO getUserInformation(User user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername(user.getUsername());
         userDTO.setUserId(user.getUserId());
