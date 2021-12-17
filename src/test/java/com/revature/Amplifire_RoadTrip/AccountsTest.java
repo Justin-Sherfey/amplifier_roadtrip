@@ -4,7 +4,9 @@ import com.revature.model.User;
 import com.revature.service.AccountService;
 import com.revature.service.UserService;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,16 +16,22 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class AccountsTest {
 
+    @Autowired
+    private AccountService accountService;
+
+    @Autowired
+    private UserService userService;
+
     /**
      * Registering a new user with valid credentials
      */
     @Test
     void testRegisterNewUser() {
         User user = new User("evan", "password", null);
-        User userReturn = AccountService.registerNewUser(user);
+        User userReturn = accountService.registerNewUser(user);
         assertEquals(user.getUsername(), userReturn.getUsername());
 
-        UserService.deleteUserById(userReturn.getUserId());
+        userService.deleteUserById(userReturn.getUserId());
     }
 
     /**
@@ -32,10 +40,12 @@ public class AccountsTest {
     @Test
     void testValidateLoginCredentials() {
         User user = new User("justin", "password", null);
-        user = AccountService.registerNewUser(user);
-        assertEquals(user.getUsername(), AccountService.validateLoginCredentials(user).getUsername());
+        User trueUser = new User("justin", "password", null);
+        user = accountService.registerNewUser(user);
+        ResponseEntity<?> loginReturn = accountService.loginUser(user);
+        assertEquals(loginReturn.getStatusCode(), accountService.loginUser(trueUser).getStatusCode());
 
-        UserService.deleteUserById(user.getUserId());
+        userService.deleteUserById(user.getUserId());
     }
 
     /**
@@ -45,14 +55,12 @@ public class AccountsTest {
     void testInvalidLogin() {
         User user = new User("user100", "password", null);
         User falseUser = new User("user100", "pass", null);
-        user = AccountService.registerNewUser(user);
+        user = accountService.registerNewUser(user);
+        ResponseEntity<?> loginReturn = accountService.loginUser(user);
 
-        Exception exception = assertThrows(RuntimeException.class, () -> {
-            AccountService.validateLoginCredentials(falseUser);
-        });
-        assertNotEquals(null , exception);
+        assertNotEquals(loginReturn.getStatusCode(), accountService.loginUser(falseUser).getStatusCode());
 
-        UserService.deleteUserById(user.getUserId());
+        userService.deleteUserById(user.getUserId());
     }
 
     /**
@@ -63,14 +71,14 @@ public class AccountsTest {
         User user = new User("user101", "password", null);
         User user2 = new User("user101", "passwor", null);
 
-        user = AccountService.registerNewUser(user);
+        user = accountService.registerNewUser(user);
 
         Exception exception = assertThrows(RuntimeException.class, () -> {
-            AccountService.registerNewUser(user2);
+            accountService.registerNewUser(user2);
         });
         assertNotEquals(null, exception);
 
-        UserService.deleteUserById(user.getUserId());
+        userService.deleteUserById(user.getUserId());
     }
 
     /**
@@ -80,7 +88,7 @@ public class AccountsTest {
     void testNullUser() {
         User user = new User(null, null, null);
         Exception exception = assertThrows(RuntimeException.class, () -> {
-            AccountService.registerNewUser(user);
+            accountService.registerNewUser(user);
         });
         assertNotEquals(null, exception);
     }

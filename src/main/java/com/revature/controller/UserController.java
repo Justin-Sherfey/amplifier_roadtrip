@@ -1,10 +1,13 @@
 package com.revature.controller;
 
-import com.revature.model.User;
+import com.revature.model.UserDTO;
+import com.revature.service.AccountService;
 import com.revature.model.UserDTO;
 import com.revature.service.UserService;
 import com.revature.security.util.JwtUtil;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -15,19 +18,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/users")
 public class UserController {
 
-    private final UserService userService;
-    private final JwtUtil jwtUtil;
+    @Autowired
+    private UserService userService;
 
-    /**
-     * Constructor for creating a new UserController
-     * 
-     * @param userService the userservice instance
-     * @param jwtUtil     used for security and authentication
-     */
-    public UserController(UserService userService, JwtUtil jwtUtil) {
-        this.userService = userService;
-        this.jwtUtil = jwtUtil;
-    }
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    @Autowired
+    private AccountService accountService;
+
 
     /**
      * Handles a GET request, retrieves a user from the database using service layer
@@ -51,8 +50,8 @@ public class UserController {
      * @return user object if successfully updated in the database
      */
     @PutMapping
-    public User updateUser(@RequestBody User user) {
-        return userService.updateUser(user);
+    public ResponseEntity<?> updateUser(@RequestBody UserDTO userDTO) {
+        return accountService.loginUser(userService.updateUser(userDTO));
     }
 
     /**

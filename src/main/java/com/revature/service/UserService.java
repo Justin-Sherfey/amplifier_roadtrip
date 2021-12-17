@@ -3,6 +3,8 @@ package com.revature.service;
 import com.revature.model.User;
 import com.revature.model.UserDTO;
 import com.revature.repository.UserRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,11 +15,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    private static UserRepository userRepository;
-
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    @Autowired
+    private UserRepository userRepository;
 
     /**
      * Persists a new user to the database by calling the repository layer
@@ -25,7 +24,7 @@ public class UserService {
      * @param user user being persisted to database
      * @return user object if it is successfully created
      */
-    public static User createNewUser(User user) {
+    public User createNewUser(User user) {
         if (userRepository.existsByUsername(user.getUsername()))
             return null;
         return userRepository.save(user);
@@ -37,7 +36,7 @@ public class UserService {
      * @param userId user id of object being retrieved
      * @return user object if found in database
      */
-    public static User getUserById(Integer userId) {
+    public User getUserById(Integer userId) {
         return userRepository.getUserByUserId(userId);
     }
 
@@ -47,17 +46,18 @@ public class UserService {
      * @param username the username of the user object being retrieved
      * @return the user object if it is found in the database
      */
-    public static User getUserByUsername(String username) {
+    public User getUserByUsername(String username) {
         return userRepository.getUserByUsername(username);
     }
 
     /**
      * Retrieve a user object with sensitive infromation redacted
-     * 
-     * @param username the user whose infromation needs to be redacted
+     * feature-update-login
+     *
+     * @param user the user whose infromation needs to be redacted
      * @return the user with sensitive infromation redacted
      */
-    public static UserDTO getUserInformation(User user) {
+    public UserDTO getUserInformation(User user) {
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername(user.getUsername());
         userDTO.setUserId(user.getUserId());
@@ -72,7 +72,10 @@ public class UserService {
      * @param user user object being updated
      * @return the user object if successfully updated
      */
-    public static User updateUser(User user) {
+    public User updateUser(UserDTO userDTO) {
+        User user = userRepository.getUserByUserId(userDTO.getUserId());
+        user.setUsername(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
         return userRepository.save(user);
     }
 
@@ -82,7 +85,7 @@ public class UserService {
      * @param userId user id of user being deleted
      * @return boolean corresponding to success of deletion
      */
-    public static boolean deleteUserById(Integer userId) {
+    public boolean deleteUserById(Integer userId) {
         if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);
             return true;
