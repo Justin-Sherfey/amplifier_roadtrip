@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import com.revature.model.UserDTO;
 import com.revature.service.AccountService;
+import com.revature.model.UserDTO;
 import com.revature.service.UserService;
 import com.revature.security.util.JwtUtil;
 
@@ -25,6 +26,7 @@ public class UserController {
 
     @Autowired
     private AccountService accountService;
+
 
     /**
      * Handles a GET request, retrieves a user from the database using service layer

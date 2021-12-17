@@ -52,6 +52,7 @@ public class UserService {
 
     /**
      * Retrieve a user object with sensitive infromation redacted
+     * feature-update-login
      *
      * @param user the user whose infromation needs to be redacted
      * @return the user with sensitive infromation redacted
