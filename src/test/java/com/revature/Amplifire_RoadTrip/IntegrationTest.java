@@ -1,6 +1,5 @@
 package com.revature.Amplifire_RoadTrip;
 
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.controller.AccountController;
 import com.revature.controller.UserController;
@@ -17,7 +16,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * Integration/end-to-end testing using Spring MockMVC
@@ -28,7 +26,6 @@ public class IntegrationTest {
 
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private AccountController accountController;
     @Autowired
@@ -39,6 +36,7 @@ public class IntegrationTest {
 
     /**
      * Tests when a valid user attempts to login
+     * 
      * @throws Exception
      */
     @Test
@@ -63,7 +61,9 @@ public class IntegrationTest {
     }
 
     /**
-     * Tests when user attempts to read user information without proper authentication
+     * Tests when user attempts to read user information without proper
+     * authentication
+     * 
      * @throws Exception
      */
     @Test
@@ -74,7 +74,7 @@ public class IntegrationTest {
         user.setUsername("just");
         user.setTrips(null);
 
-        //user = userRepository.save(user);
+        // user = userRepository.save(user);
 
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
         mockMvc.perform(MockMvcRequestBuilders
