@@ -31,7 +31,7 @@ public class Trip {
     @JsonManagedReference
     private List<Waypoint> waypoints;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne()
     @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
     private User user;
