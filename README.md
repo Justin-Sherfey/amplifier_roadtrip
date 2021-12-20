@@ -23,6 +23,8 @@ The Amplifier Road Trip API uses a Java backend to provide functionality and dat
 
 The API is deployed online which can be found [here](http://amplifireroadtripbeanstalk-env.eba-amdewhu5.us-west-2.elasticbeanstalk.com/), and uses a preconfigured database on AWS. Detailed steps on the features available and how to use them can be found in the features section. 
 
+A Swagger GUI is also also available [here](http://34.222.84.38/swagger-ui/index.html).
+
 In the case that both are shut down, one can deploy the API server locally using these instructions
 
 1) Clone the repository to local machine and open using IDE of choice
