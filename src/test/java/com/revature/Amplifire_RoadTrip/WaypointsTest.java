@@ -38,7 +38,7 @@ public class WaypointsTest {
         user = userService.createNewUser(user);
         Trip trip = new Trip("roadtrip8", user);
         trip = tripService.createTrip(trip);
-        Waypoint waypoint = new Waypoint("waypoint 1", 10.0, 10.0, trip);
+        Waypoint waypoint = new Waypoint("waypoint 1", "test", trip);
         assertEquals(waypoint.getWaypointName(), waypointService.createWaypoint(waypoint).getWaypointName());
     }
 
@@ -51,8 +51,8 @@ public class WaypointsTest {
         user = userService.createNewUser(user);
         Trip trip = new Trip("roadtrip9", user);
         trip = tripService.createTrip(trip);
-        Waypoint waypoint = new Waypoint("waypoint 2", 10.0, 10.0, trip);
-        Waypoint waypoint2 = new Waypoint("waypoint 3", 20.0, 20.0, trip);
+        Waypoint waypoint = new Waypoint("waypoint 2","test", trip);
+        Waypoint waypoint2 = new Waypoint("waypoint 3", "test", trip);
         waypointService.createWaypoint(waypoint);
         waypointService.createWaypoint(waypoint2);
 
@@ -72,7 +72,7 @@ public class WaypointsTest {
         Trip trip = new Trip("road trip 10", user);
         trip = tripService.createTrip(trip);
 
-        Waypoint waypoint = new Waypoint("waypoint 4", 40.0, 40.0, trip);
+        Waypoint waypoint = new Waypoint("waypoint 4", "test", trip);
         waypoint = waypointService.createWaypoint(waypoint);
 
         assertEquals(waypoint.getWaypointName(),
@@ -108,7 +108,7 @@ public class WaypointsTest {
         Trip trip = new Trip("road trip 12", user);
         trip = tripService.createTrip(trip);
 
-        Waypoint waypoint = new Waypoint("waypoint 6", 60.0, 60.0, trip);
+        Waypoint waypoint = new Waypoint("waypoint 6", "test", trip);
         waypoint = waypointService.createWaypoint(waypoint);
 
         boolean success = waypointService.deleteWaypointById(waypoint.getWaypointId());

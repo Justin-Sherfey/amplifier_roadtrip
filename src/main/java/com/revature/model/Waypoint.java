@@ -24,10 +24,7 @@ public class Waypoint {
     private String waypointName;
 
     @Column(nullable = false)
-    private double longitude;
-
-    @Column(nullable = false)
-    private double latitude;
+    private String placeId;
 
     @ManyToOne()
     @JoinColumn(name = "trip_id", nullable = false)
@@ -41,10 +38,9 @@ public class Waypoint {
      * @param latitude latitude of the waypoint
      * @param trip trip to which the waypoint belongs to
      */
-    public Waypoint(String waypointName, double longitude, double latitude, Trip trip) {
+    public Waypoint(String waypointName, String placeId, Trip trip) {
         this.waypointName = waypointName;
-        this.longitude = longitude;
-        this.latitude = latitude;
+        this.placeId = placeId;
         this.trip = trip;
     }
 }
